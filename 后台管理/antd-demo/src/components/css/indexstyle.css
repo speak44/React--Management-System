@@ -1,0 +1,129 @@
+.indexcon{
+    background: rgb(255, 255, 255);
+    min-height: 417px;
+}
+.indc-top{
+
+    text-align: center;
+    width: 969px;
+    /*background: red;*/
+}
+.inta:hover i{
+  transition: .3s;
+  transform: rotate(360deg);
+}
+.inta{
+  width: 300px;
+  height: 90px;
+  display: block;
+  float: left;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+.indt-tu{
+    width: 40%;
+    padding: 22px;
+    border-radius: 5px;
+    float: left;
+}
+/*.indc-top .indt-tu:nth-of-type(1){
+  background-color: #54ade8;
+}*/
+
+.indt-tu i{
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin: 0px 15px;
+}
+/*.indc-top i:nth-of-type(2){
+    background:url(../img/message.png);
+}*/
+.inii1{
+  background:url(../img/message.png);
+}
+.inii2{
+  background: url(../img/popr.png);
+}
+.inii3{
+  background: url(../img/linkman.png);
+}
+.inii4{
+  background: url(../img/img.png);
+}
+.inii5{
+  background: url(../img/article.png);
+}
+.inii6{
+  background: url(../img/sum.png);
+}
+.magstext{
+    width: 60%;
+    display: inline-block;
+    float: right;
+    margin-top: 22px;
+}
+.magstext span:nth-child(1){
+    font-size: 25px;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+.magstext span:nth-child(2){
+    font-size: 16px;
+    display: block;
+    font-style: normal;
+}
+.echar{
+  float: left;
+}
+.hotess{
+  float: right;
+  width: 583px;
+  height: 318px;
+  padding-top: 20px;
+  padding-left: 14px;
+}
+.hotes-top{
+  width: 540px;
+  padding: 11px 0px 18px 10px;
+  background: #f2f2f2;
+  border-left: 5px solid #009688;
+}
+.hotes-top span{
+  float: left;
+  display: block;
+  width: 80px;
+  line-height: 33px;
+  font-size: 18px;
+  margin-right: 4px;
+}
+.hotes-top i{
+  display: block;
+  float: left;
+  width: 31px;
+  height: 33px;
+  background: url(../img/hot.png)
+}
+.hotess ul{
+  width: 540px;
+  border-left:5px solid #e2e2e2 ;
+  border-right: 1px solid #e2e2e2;
+  border-top: 1px solid #e2e2e2;
+}
+.hotess ul li{
+  padding-left: 14px;
+  padding-right: 22px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 16px;
+}
+.hotess ul li span:nth-of-type(1){
+  float: left;
+}
+.hotess ul li span:nth-of-type(2){
+  float: right;
+}

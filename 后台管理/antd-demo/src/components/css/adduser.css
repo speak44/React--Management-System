@@ -1,0 +1,141 @@
+.appuser{
+  margin-bottom: 20px;
+}
+.adus span{
+  float: left;
+  width: 67px;
+  font-size: 16px;
+  line-height: 46px;
+  font-weight: bold;
+  margin-right: 16px;
+  text-align: right;
+}
+.adus input{
+  height: 44px;
+  width: 800px;
+  border: 2px solid #e6e6e6;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  padding-left: 20px;
+}
+.email{
+	margin-bottom: 18px;
+}
+.addsex{
+  width: 310px;
+}
+.adsexxz{
+	float: right;
+	padding: 10px 0px 12px 0px;
+}
+.adsexxz i{
+	float: left;
+  width: 25px;
+  height: 24px;
+  background: url(../img/sevo.png) no-repeat center;
+  margin-right: 8px;
+}
+/*点击的改变颜色*/
+.adsexxz .adseact{
+	background: url(../img/sevoh.png) no-repeat center;
+}
+.adsexxz a{
+	float: left;
+	margin-right: 30px;
+	font-size: 16px;
+}
+.adsexxz a:nth-of-type(3){
+	margin: 0;
+}
+.gradevip{
+	margin-top: 18px;
+	float: left;
+}
+.grandhy{
+	width: 390px;
+	height: 47px;
+	float: left;
+	position: relative;
+	
+}
+.zhucevip{
+	width: 284px;
+	height: 44px;
+	padding: 11px 11px 11px 12px;
+  border: 2px solid #e6e6e6;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.zhucevip i{
+	float: right;
+	width: 14px;
+	height: 7px;
+	background: url(../img/gradevip.png) no-repeat center;
+	margin-top: 7px;
+}
+.zhuccont{
+	float: left;
+	font-size: 16px;
+	line-height: 16px;
+}
+.grandhy ul{
+	display: none;
+	position: absolute;
+	top: 48px;
+	left: 0px;
+	width: 284px;
+	background: #FFFFFF;
+	border: 1px solid #d2d2d2;
+	box-shadow: 0 2px 4px rgba(0,0,0,.12);
+	
+}
+.grandhy ul li:nth-of-type(1){
+	  background-color: #5FB878;
+    color: #fff;
+}
+.grandhy ul li{
+	  padding: 0 10px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+/*.grandhy ul li:hover{
+	  background-color: #f2f2f2;
+}*/
+.subtjc{
+	margin-top:90px;
+	margin-left:300px;
+	width: 236px;
+	height: 45px;
+}
+.subtjc a{
+	display: block;
+	padding: 12px 21px 14px 21px;
+	font-size: 18px;
+	text-align: 20px;
+	border-radius: 4px;
+}
+.subtjc a:nth-of-type(1){
+	float: left;
+	border: 0;
+	
+	background: #1aa094;
+	color: #fff;
+}
+.subtjc a:nth-of-type(2){
+	float: right;
+	border:  1px solid #cecece;
+}
+.subtjc a:nth-of-type(1):hover{
+ 	opacity: .8;
+	filter: alpha(opacity=80);
+	color: #fff;
+}
+.subtjc a:nth-of-type(2):hover{
+	border-color: #009688;
+  color: #333;
+}

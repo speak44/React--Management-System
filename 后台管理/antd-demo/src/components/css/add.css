@@ -1,0 +1,100 @@
+body{
+  overflow: hidden;
+  background:#ececec;
+}
+.addlogin{
+  width: 474px;
+  height: 400px;
+  padding: 43px 54px 34px 54px;
+  -webkit-box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  margin: 100px auto;
+  border-radius: 6px;
+}
+form{
+  width: 372px;
+  height: 242px;
+  /*border: 1px solid #000;*/
+}
+.userandpass{
+  height: 47px;
+  padding: 14px 13px;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.userandpass span{
+  float: left;
+  width: 13px;
+  height: 18px;
+  margin-right: 10px;
+}
+.userlogo{
+  background: url(../img/user.png)
+}
+.passlogo{
+  background: url(../img/pass.png)
+}
+.account{
+  float: left;
+  width:320px ;
+  height: 18px;
+  outline: none;
+  border: 0;
+
+}
+h3{
+  text-align: center;
+  height: 18px;
+  line-height: 18px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 41px;
+}
+.dengl{
+ padding: 14px 0px 12px 0px;
+ height: 48px;
+}
+.remem{
+  display: block;
+  width: 87px;
+  height: 22px;
+  float: left;
+}
+.remem a i{
+  float: left;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background:#404040 url(../img/right.png) no-repeat center;
+  border: 1px solid #000;
+  border-radius: 2px;
+  margin-right: 11px;
+  margin-top: 1px;
+}
+.remem a span{
+  float: left;
+  width: 55px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 22px;
+}
+.forget{
+  float: right;
+  width: 72px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 22px;
+}
+.andeng{
+  display: block;
+  height: 48px;
+  background:#404040;
+  /*width:327px;*/
+  font-size: 20px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 48px;
+  color:#fff;
+}
