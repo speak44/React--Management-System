@@ -8,18 +8,25 @@ import { Input } from 'antd';
 import AddUser from './js/AddUser';
 import Sy from './js/Sy';
 import Userinfo from './js/Userinfo';
+import AboutMe from './js/AboutMe';
+import Passwd from './js/Passwd';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
 const Search = Input.Search;
 
-class SiderDemo extends React.Component {
+class SiderDemo extends Component {
   constructor(){
     super();
     this.state={
         collapsed: false,
         //个人信息隐藏
-        disshow:'none'
+        disshow:'none',
+        aduser:[
+          {name:'小小',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017-9-16'},
+          {name:'张三',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017-9-16'},
+          {name:'李四',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017-9-16'}                    
+        ]
     }
   }
   onCollapse = (collapsed) => {
@@ -63,12 +70,20 @@ class SiderDemo extends React.Component {
                 </Link>
               </Menu.Item>
               <Menu.Item key="5">
-              <Link to="/home/Userinfo">
-              用户数据
-              </Link>
+	              <Link to="/home/Userinfo">
+	              用户数据
+	              </Link>
               </Menu.Item>
-              <Menu.Item key="6">个人资料</Menu.Item>
-              <Menu.Item key="7">修改密码</Menu.Item>
+              <Menu.Item key="6">
+	              <Link to="/home/AboutMe">
+	              个人资料
+	              </Link>
+              </Menu.Item>
+              <Menu.Item key="7">
+	              <Link to="/home/Passwd">
+	              修改密码
+	              </Link>
+              </Menu.Item>
             </SubMenu>
             <SubMenu
               key="sub3"
@@ -136,11 +151,15 @@ class SiderDemo extends React.Component {
               <Breadcrumb.Item>首页</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', height: 457,overflow:'auto'}}>
+            <div style={{ padding: 24, background: '#fff', height: 613,overflow:'auto'}}>
               <Switch>
                 <Route exact path = "/home" component = {Sy} />
                 <Route path = "/home/AddUser" component = {AddUser} />
-                <Route path = "/home/Userinfo" component = {Userinfo} />                
+                <Route path = "/home/Userinfo" render={()=>{
+                  return<Userinfo aduser={this.state.aduser}/>
+                }}  />
+                <Route path = "/home/AboutMe" component = {AboutMe} />
+                <Route path ="/home/Passwd" component={Passwd}/>
               </Switch>
             </div>
           </Content>

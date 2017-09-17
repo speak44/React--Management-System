@@ -2,6 +2,27 @@ import React, { Component } from 'react';
 import { Button } from 'antd';
 import '../css/adduser.css';
 class AddUser extends Component {
+  constructor(){
+    super();
+    this.state={
+      name:'',
+      email:'',
+      sex:'',
+      vip:'',
+      cond:'',
+      time:'',
+      bgc:'adseact',
+      colorid:1,
+      one:1,
+      two:2,
+      three:3
+    }
+  }
+  changesev=(ev)=>{
+    this.setState({
+      colorid:ev.target.id
+    })
+  }
   render(){
     return (
       <div className="adus">
@@ -9,8 +30,9 @@ class AddUser extends Component {
           <span>登录名</span>
           <input
             type="text"
-            value=""
+            value={this.state.name}
             placeholder="请输入登录名"
+            onChange={this.changename}
           />
         </div>
         <div className="email">
@@ -24,16 +46,30 @@ class AddUser extends Component {
         <div className="addsex clearfixqxk">
           <span>性别</span>
           <div className="adsexxz clearfixqxk">
-            <a href={'javascript:;'} className="clearfixqxk">
-              <i className="adseact"></i>
+            <a href={'javascript:;'}
+               className="clearfixqxk"
+              onClick={this.changesev}
+              id="1"
+               >
+              <i className={this.state.one==this.state.colorid?"adseact":""} id="1"></i>
               男
             </a>
-            <a href={'javascript:;'} className="clearfixqxk">
-              <i></i>
+            <a href={'javascript:;'}
+              className="clearfixqxk"
+              onClick={this.changesev}
+              id="2"
+              >
+              <i
+                className={this.state.two==this.state.colorid?"adseact":""}   id="2"></i>
               女
             </a>
-            <a href={'javascript:;'} className="clearfixqxk">
-              <i></i>
+            <a href={'javascript:;'}
+              className="clearfixqxk"
+              onClick={this.changesev}
+              id="3"
+              >
+              <i
+                className={this.state.three==this.state.colorid?"adseact":""} id="3"></i>
               保密
             </a>
           </div>

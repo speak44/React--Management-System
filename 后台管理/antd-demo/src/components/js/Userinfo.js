@@ -1,21 +1,55 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
 import '../css/userinfo.css';
-
+import '../css/common.css';
+//userinfo tbody 内容
+class Tbodycont extends Component{
+	render(){
+		  let {name,email,sex,vip,cond,time}=this.props;
+		return(
+			<tr>
+				<td><span className="checkall"></span></td>
+				<td>{name}</td>
+				<td>{email}</td>
+				<td>{sex}</td>
+				<td>{vip}</td>
+				<td>{cond}</td>
+				<td>{time}</td>
+				<td><img src={require('../img/tabifdel.png')}/></td>
+			</tr>
+		)
+	}
+}
+//userinfo组件
 class Userinfo extends Component {
 	render(){
+		let initArr = this.props.aduser;
+		let list = initArr.map((e,i) => {
+			let data={
+				key:i,
+				name:e.name,
+				email:e.email,
+				sex:e.sex,
+				vip:e.vip,
+				cond:e.cond,
+				time:e.time
+			}
+				return <Tbodycont {...data} />
+		});
 		return(
-			<div>用户数据
-				<div>
-					<input type="text"/>
+			<div className="uifo">
+				<div className="ufo-head">
+					<input type="text"
+						placeholder="输入搜索内容"
+					/>
 					<a href={'javascript:;'}>查询</a>
 					<a href={'javascript:;'}>添加用户</a>
-					<a href={'javascript:;'}>批量删除</a>					
+					<a href={'javascript:;'}>批量删除</a>
 				</div>
-				<table border="1">
+				<table  className="uifotab">
 					<thead>
 						<tr>
-							<th></th>
+							<th><span className="checkall"></span></th>
 							<th>登录名</th>
 							<th>邮箱</th>
 							<th>性别</th>
@@ -26,16 +60,7 @@ class Userinfo extends Component {
 						</tr>
 					</thead>
 					<tbody>
-					<tr>
-							<th></th>
-							<th>小小</th>
-							<th>121344@qq.com</th>
-							<th>男</th>
-							<th>高级会员</th>
-							<th>正常使用</th>
-							<th>2016-9-19</th>
-							<th>删除</th>						
-					</tr>
+							{list}
 					</tbody>
 				</table>
 			</div>

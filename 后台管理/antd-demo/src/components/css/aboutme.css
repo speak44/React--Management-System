@@ -1,0 +1,120 @@
+.abues{
+	font-size: 14px;
+	padding-left:20px ;	
+}
+.abues span{
+	float: left;
+	width: 57px;
+	padding: 12px 0px;
+	margin-right: 15px;
+	text-align: right;
+}
+.abues input{
+	float: left;
+	width: 642px;
+	padding: 10px 0px 10px 10px;
+	border: 1px solid #e6e6e6;
+	border-radius: 4px;
+}
+.usna input{
+	background: #f2f2f2;
+	cursor: not-allowed!important;
+}
+.usna{
+	margin-bottom: 15px;
+}
+.abues .ant-calendar-picker{
+	width:230px;
+}
+.abues .ant-calendar-picker-input{
+	width: 260px;
+	height: 40px;
+}
+.abues .ant-calendar-picker-icon{
+    position: absolute;
+    left: 190px;
+    top: 8px;
+}
+.abues .ant-cascader-picker{
+	width: 260px;
+	height: 40px;
+}
+.abues .ant-cascader-picker-label{
+	width: 213px;
+	height: 40px;
+}
+.birth span{
+	line-height: 40px;
+}
+.birth{
+	position: relative;
+}
+.abues .ant-input{
+	width: 260px;
+	height: 40px;
+}
+.abues .ant-cascader-picker-arrow{
+	margin-top: 6px;
+}
+.abues .city{
+	line-height: 40px;
+}
+.ant-calendar{
+	margin-top: 10px;
+}
+/*.hobbies{
+    line-height: 28px;
+    margin-right: 10px;
+    padding-right: 30px;
+    border: 1px solid #d2d2d2;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+}
+.hobbies span{
+	display: block;
+	float: left;
+	padding: 10px 10px;
+    font-size: 14px;
+    background-color: #d2d2d2;
+    color: #fff;
+    white-space: nowrap;
+}*/
+.hobbies{
+	float: left;
+	width: 700px;
+}
+.hobbies div{
+	float: left;
+	margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #d2d2d2;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+}
+.hobbies div:hover span{
+	background:#c2c2c2;
+}
+.hobbies div span{
+	width: 70px;
+	display: block;
+	margin: 0;
+	float: left;
+	line-height: 27px;
+	text-align: center;
+    font-size: 14px;
+    background-color: #d2d2d2;
+    color: #fff;	
+}
+.hobbies div i{
+	float: right;
+	height: 50px;
+	width: 50px;	
+}
+.hobbies div:hover i{
+	background: url(../img/righthob.png) no-repeat center;	
+}
