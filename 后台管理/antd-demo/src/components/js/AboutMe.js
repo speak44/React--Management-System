@@ -8,12 +8,63 @@ const { RangePicker } = DatePicker;
 	  console.log('Selected Time: ', value);
 	  console.log('Formatted Selected Time: ', dateString);
 	}
-	
+
 	function onOk(value) {
 	  console.log('onOk: ', value);
 	}
 class AboutMe extends Component{
+	constructor(){
+		super()
+		this.state={
+			real:'',
+			man:1,
+			wom:2,
+			secr:3,
+			fix:1,
+			phone:'',
+			phonoff:false,
+			hobonoff:false
+		}
+	}
+	//改变真实姓名
+	cagereal=(ev)=>{
+		this.setState({
+			real:ev.target.value
+		})
+	}
+	//性别选择
+	clicksex=(ev)=>{
+		this.setState({
+			fix:ev.target.getAttribute("content")
+		})
+	}
+	//手机号修改
+	clickphone=(ev)=>{
+		// console.log(ev.target.value)
+		this.setState({
+			phone:ev.target.value
+		})
+
+	}
+	//手机号填入失焦事件
+	blurphone=(ev)=>{
+		let regexp=/^((\d3)|(\d{3}\-))?13[456789]\d{8}|15[89]\d{8}/;
+		if(regexp.test(ev.target.value)){
+				this.setState({
+					phonoff:true
+				})
+		}else{
+			alert('请输入正确的手机号码')
+		}
+	}
+	//爱好
+	clickhob=()=>{
+			this.setState({
+				hobonoff:true
+			})
+	}
 	render(){
+		let sclass=this.state.hobonoff?'active':'';
 		return(
 			<div>个人资料
 				<div className="abues">
@@ -24,48 +75,71 @@ class AboutMe extends Component{
 				            value=""
 				            placeholder="cici"
 				            readOnly="true"
-				         />        
+				         />
 					</div>
 					<div className="usna clearfixqxk">
 						<span>用户组</span>
-						<input 
+						<input
 				            type="text"
 				            value=""
-				            placeholder="管理员"		
+				            placeholder="管理员"
 				            readOnly="true"
 						/>
 					</div>
 					<div className="clearfixqxk">
 						<span>真实姓名</span>
-						<input 
+						<input
 				            type="text"
-				            value=""
-				            placeholder="请输入真实姓名"	
+				            value={this.state.real}
+				            placeholder="请输入真实姓名"
+										onChange={this.cagereal}
 						/>
 					</div>
 			        <div className="addsex clearfixqxk">
 			          <span>性别</span>
 			          <div className="adsexxz clearfixqxk">
-			            <a href={'javascript:;'} className="clearfixqxk">
-			              <i className="adseact"></i>
+			            <a href={'javascript:;'}
+										className="clearfixqxk"
+										onClick={this.clicksex}
+										content="1"
+										>
+			              <i className={this.state.man==this.state.fix?'adseact':''}
+										content="1"
+										></i>
 			              男
 			            </a>
-			            <a href={'javascript:;'} className="clearfixqxk">
-			              <i></i>
+			            <a href={'javascript:;'}
+										className="clearfixqxk"
+										onClick={this.clicksex}
+										content="2"
+										>
+			              <i
+											className={this.state.wom==this.state.fix?'adseact':''}
+										content="2"
+											></i>
 			              女
 			            </a>
-			            <a href={'javascript:;'} className="clearfixqxk">
-			              <i></i>
+			            <a href={'javascript:;'}
+										className="clearfixqxk"
+										onClick={this.clicksex}
+										content="3"
+										>
+			              <i
+											className={this.state.secr==this.state.fix?'adseact':''}
+										content="3"
+											></i>
 			              保密
 			            </a>
 			          </div>
 			        </div>
 					<div className="clearfixqxk">
 						<span>手机号码</span>
-						<input 
+						<input
 				            type="text"
-				            value=""
-				            placeholder="请输入手机号码"	
+				            value={this.state.phone}
+				            placeholder="请输入手机号码"
+										onChange={this.clickphone}
+										onBlur={this.blurphone}
 						/>
 					</div>
 					<div className=" birth clearfixqxk">
@@ -76,7 +150,7 @@ class AboutMe extends Component{
 					      placeholder="Select Time"
 					      onChange={onChange}
 					      onOk={onOk}
-					     
+
 					    />
 					</div>
 					<div className="clearfixqxk">
@@ -88,55 +162,57 @@ class AboutMe extends Component{
 					<div className="clearfixqxk">
 						<span className="hobsp">兴趣爱好</span>
 						<div className="clearfixqxk hobbies">
-							<div className="clearfixqxk ">
+							<div className="clearfixqxk"
+									onClick={this.clickhob}
+								>
 								<span>Javascript</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>HTML5</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>CSS3</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>PHP</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>.net</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>ASP</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>C#</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>Angular</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>VUE</span>
-								<i></i>
+								<i className={sclass}></i>
 							</div>
 							<div className="clearfixqxk">
 								<span>XML</span>
-								<i></i>
-							</div>							
+								<i className={sclass}></i>
+							</div>
 						</div>
 					</div>
 					<div className="clearfixqxk">
 						<span>邮箱</span>
-						<input 
+						<input
 				            type="text"
 				            value=""
-				            placeholder="请输入邮箱"	
-						/>						
+				            placeholder="请输入邮箱"
+						/>
 					</div>
 				</div>
 				<div className="subtjc">

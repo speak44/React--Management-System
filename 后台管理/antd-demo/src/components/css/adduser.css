@@ -57,7 +57,7 @@
 	height: 47px;
 	float: left;
 	position: relative;
-	
+
 }
 .zhucevip{
 	width: 284px;
@@ -80,17 +80,18 @@
 	line-height: 16px;
 }
 .grandhy ul{
-	display: none;
+	/*display: none;*/
 	position: absolute;
 	top: 48px;
 	left: 0px;
+  z-index: 1;
 	width: 284px;
 	background: #FFFFFF;
 	border: 1px solid #d2d2d2;
 	box-shadow: 0 2px 4px rgba(0,0,0,.12);
-	
+
 }
-.grandhy ul li:nth-of-type(1){
+.grangb{
 	  background-color: #5FB878;
     color: #fff;
 }
@@ -122,7 +123,7 @@
 .subtjc a:nth-of-type(1){
 	float: left;
 	border: 0;
-	
+
 	background: #1aa094;
 	color: #fff;
 }
@@ -138,4 +139,7 @@
 .subtjc a:nth-of-type(2):hover{
 	border-color: #009688;
   color: #333;
+}
+.infonone{
+  display:none;
 }

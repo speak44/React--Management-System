@@ -1,6 +1,6 @@
 .abues{
 	font-size: 14px;
-	padding-left:20px ;	
+	padding-left:20px ;
 }
 .abues span{
 	float: left;
@@ -108,13 +108,16 @@
 	text-align: center;
     font-size: 14px;
     background-color: #d2d2d2;
-    color: #fff;	
+    color: #fff;
 }
 .hobbies div i{
 	float: right;
 	height: 50px;
-	width: 50px;	
+	width: 50px;
 }
 .hobbies div:hover i{
-	background: url(../img/righthob.png) no-repeat center;	
+	background: url(../img/righthob.png) no-repeat center;
+}
+.hobbies div .active{
+	background: url(../img/righthob2.png) no-repeat center;	
 }

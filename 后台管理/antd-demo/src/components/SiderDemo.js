@@ -23,10 +23,11 @@ class SiderDemo extends Component {
         //个人信息隐藏
         disshow:'none',
         aduser:[
-          {name:'小小',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017-9-16'},
-          {name:'张三',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017-9-16'},
-          {name:'李四',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017-9-16'}                    
-        ]
+          {name:'小小',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/3/3 下午2:45:42',cheched:false},
+          {name:'张三',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/4/5 下午2:45:42',cheched:false},
+          {name:'李四',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/5/5 下午2:45:42',cheched:false}
+        ],
+        allonof:false
     }
   }
   onCollapse = (collapsed) => {
@@ -44,6 +45,79 @@ class SiderDemo extends Component {
        disshow:'none'
     })
   })
+  //数组添加内容
+  changedata=(newjson)=>{
+    console.log(newjson)
+    let {aduser}=this.state;
+    let aduser2=Object.assign(aduser);
+    aduser2.unshift(newjson);
+    this.setState({
+      aduser:aduser2
+    })
+  }
+  //删除用户内容
+  remove=(newid)=>{
+    let {aduser}=this.state
+    let aduser2=null;
+    aduser2=aduser.filter((e,i)=>{
+      return i!=newid
+    })
+    this.setState({
+      aduser:aduser2
+    })
+  }
+  //选中画√
+  clickright=(newid)=>{
+    let {aduser}=this.state
+    let aduser2=Object.assign(aduser)
+    aduser2.forEach((e,i)=>{
+      if(i==newid){
+          e.cheched=!e.cheched
+      }
+    })
+    let all=null;
+    all=aduser2.every((e)=>{
+          return e.cheched
+      })
+    this.setState({
+      aduser:aduser2,
+      allonof:all
+    })
+  }
+  //全选按钮触发
+  allclick=()=>{
+    let {aduser}=this.state
+    let aduser2=Object.assign(aduser)
+    if(this.state.allonof){
+      aduser2.forEach((e,i)=>{
+        e.cheched=false
+      })
+      this.setState({
+        aduser:aduser2,
+        allonof:false
+      })
+    }else{
+      aduser2.forEach((e,i)=>{
+        e.cheched=true
+      })
+      this.setState({
+        aduser:aduser2,
+        allonof:true
+      })
+    }
+  }
+  //批量删除
+  alldel=()=>{
+    let {aduser}=this.state
+    let aduser2=Object.assign(aduser)
+    aduser2=aduser2.filter((e)=>{
+      return !e.cheched
+    })
+    this.setState({
+      aduser:aduser2,
+      allonof:false
+    })
+  }
   render() {
     return (
       <Layout>
@@ -154,9 +228,18 @@ class SiderDemo extends Component {
             <div style={{ padding: 24, background: '#fff', height: 613,overflow:'auto'}}>
               <Switch>
                 <Route exact path = "/home" component = {Sy} />
-                <Route path = "/home/AddUser" component = {AddUser} />
+                <Route path = "/home/AddUser" render={()=>{
+                  return<AddUser changedata={this.changedata}/>
+                }} />
                 <Route path = "/home/Userinfo" render={()=>{
-                  return<Userinfo aduser={this.state.aduser}/>
+                  return<Userinfo
+                    aduser={this.state.aduser}
+                    remove={this.remove}
+                    clickright={this.clickright}
+                    allclick={this.allclick}
+                    allonof={this.state.allonof}
+                    alldel={this.alldel}
+                  />
                 }}  />
                 <Route path = "/home/AboutMe" component = {AboutMe} />
                 <Route path ="/home/Passwd" component={Passwd}/>
