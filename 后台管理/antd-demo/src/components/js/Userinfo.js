@@ -17,7 +17,7 @@ class Tbodycont extends Component{
 	}
 	render(){
 		  let {name,email,sex,vip,cond,time,cheched}=this.props;
-			    let sclass=cheched?'checktow':'checkall';
+			let sclass=cheched?'checktow':'checkall';
 		return(
 			<tr>
 				<td><span
@@ -31,7 +31,7 @@ class Tbodycont extends Component{
 				<td>{cond}</td>
 				<td>{time}</td>
 				<td><img
-							src={require('../img/tabifdel.png')}
+						src={require('../img/tabifdel.png')}
 						onClick={this.remove}
 						/>
 				</td>

@@ -53,6 +53,10 @@ class AddUser extends Component {
         this.setState({
           emonoff:false
         })
+    }else{
+      this.setState({
+        emonoff:true
+      })
     }
   }
   //还需要做，如果邮箱没有修改，将无法提交成功  <已经完成>
@@ -76,7 +80,7 @@ class AddUser extends Component {
       this.setState({
         dis:'none',
         onofvip:true,
-          transvip:''
+        transvip:''
       })
     }
   }
@@ -89,7 +93,6 @@ class AddUser extends Component {
   }
   //点击修改会员状态
   clickcond=()=>{
-    console.log(this.state.zhuconz,this.state.zt1)
     if(this.state.zhuconoff){
       this.setState({
         conddis:'block',
@@ -109,8 +112,7 @@ clickzhtb=(ev)=>{
   this.setState({
     zhuconz:ev.target.getAttribute('content'),
     cond:ev.target.innerHTML,
-    conddis:'none',
-    zhuconoff:true
+    conddis:'none'
   })
 }
 //提交按钮点击事件

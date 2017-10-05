@@ -99,6 +99,9 @@
 .hobbies div:hover span{
 	background:#c2c2c2;
 }
+/*.hobbies div .spanmove{
+	background:#c2c2c2;
+}*/
 .hobbies div span{
 	width: 70px;
 	display: block;
@@ -115,9 +118,12 @@
 	height: 50px;
 	width: 50px;
 }
-.hobbies div:hover i{
+/*.hobbies div:hover i{
 	background: url(../img/righthob.png) no-repeat center;
-}
+}*/
+/*.hobbies div .hovei{
+	background: url(../img/righthob.png) no-repeat center;
+}*/
 .hobbies div .active{
-	background: url(../img/righthob2.png) no-repeat center;	
+	background: url(../img/righthob2.png) no-repeat center;
 }

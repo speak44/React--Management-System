@@ -3,6 +3,29 @@ import { DatePicker } from 'antd';
 import HomeAdd from './HomeAdd';
 import '../css/common.css';
 import '../css/aboutme.css';
+//子组件内容
+class Hobbycont extends Component{
+	//修改爱好
+	hobclick=()=>{
+		this.props.hobclick(this.props.id)
+	}
+	render(){
+		let {hobname,hobonoff}=this.props;
+		let sclass=hobonoff?'active':'';
+		return(
+				<div
+					className="clearfixqxk"
+					onClick={this.hobclick}
+					>
+					<span>{hobname}</span>
+					<i
+						className={sclass}
+						></i>
+				</div>
+		)
+	}
+}
+//父组件内容
 const { RangePicker } = DatePicker;
 	function onChange(value, dateString) {
 	  console.log('Selected Time: ', value);
@@ -16,6 +39,18 @@ class AboutMe extends Component{
 	constructor(){
 		super()
 		this.state={
+			hobdata:[
+				{hobname:'Javascript',hobonoff:false},
+				{hobname:'HTML5',hobonoff:false},
+				{hobname:'CSS3',hobonoff:false},
+				{hobname:'PHP',hobonoff:false},
+				{hobname:'.net',hobonoff:false},
+				{hobname:'ASP',hobonoff:false},
+				{hobname:'C#',hobonoff:false},
+				{hobname:'Angular',hobonoff:false},
+				{hobname:'VUE',hobonoff:false},
+				{hobname:'XML',hobonoff:false}
+			],
 			real:'',
 			man:1,
 			wom:2,
@@ -23,7 +58,7 @@ class AboutMe extends Component{
 			fix:1,
 			phone:'',
 			phonoff:false,
-			hobonoff:false
+			emonoff:true
 		}
 	}
 	//改变真实姓名
@@ -57,14 +92,41 @@ class AboutMe extends Component{
 			alert('请输入正确的手机号码')
 		}
 	}
-	//爱好
-	clickhob=()=>{
-			this.setState({
-				hobonoff:true
-			})
+	//爱好点击事件
+	hobclick=(newid)=>{
+		let {hobdata}=this.state
+    let hobdata2=Object.assign(hobdata)
+    hobdata2.forEach((e,i)=>{
+      if(i==newid){
+          e.hobonoff=!e.hobonoff
+      }
+    })
+    this.setState({
+      hobdata:hobdata2
+    })
+	}
+	//邮箱失焦事件做正则匹配
+	blurem=(ev)=>{
+		let re=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+		if (!re.test(ev.target.value)) {
+				alert('邮箱输入错误，请重新输入')
+				this.setState({
+					emonoff:false
+				})
+		}
 	}
 	render(){
-		let sclass=this.state.hobonoff?'active':'';
+		let newhobdata=this.state.hobdata;
+		let list=newhobdata.map((e,i)=>{
+			let data={
+				key:i,
+				id:i,
+				hobname:e.hobname,
+				hobonoff:e.hobonoff,
+				hobclick:this.hobclick
+			}
+			return <Hobbycont {...data}/>
+		})
 		return(
 			<div>个人资料
 				<div className="abues">
@@ -162,48 +224,7 @@ class AboutMe extends Component{
 					<div className="clearfixqxk">
 						<span className="hobsp">兴趣爱好</span>
 						<div className="clearfixqxk hobbies">
-							<div className="clearfixqxk"
-									onClick={this.clickhob}
-								>
-								<span>Javascript</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>HTML5</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>CSS3</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>PHP</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>.net</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>ASP</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>C#</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>Angular</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>VUE</span>
-								<i className={sclass}></i>
-							</div>
-							<div className="clearfixqxk">
-								<span>XML</span>
-								<i className={sclass}></i>
-							</div>
+							{list}
 						</div>
 					</div>
 					<div className="clearfixqxk">
@@ -212,6 +233,7 @@ class AboutMe extends Component{
 				            type="text"
 				            value=""
 				            placeholder="请输入邮箱"
+										onBlur={this.blurem}
 						/>
 					</div>
 				</div>
