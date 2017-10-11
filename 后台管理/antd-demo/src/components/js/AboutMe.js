@@ -57,6 +57,7 @@ class AboutMe extends Component{
 			secr:3,
 			fix:1,
 			phone:'',
+			email:'',
 			phonoff:false,
 			emonoff:true
 		}
@@ -105,16 +106,26 @@ class AboutMe extends Component{
       hobdata:hobdata2
     })
 	}
+	//邮箱
+  changeemail=(ev)=>{
+      this.setState({
+        email:ev.target.value
+      })
+  }
 	//邮箱失焦事件做正则匹配
-	blurem=(ev)=>{
-		let re=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
-		if (!re.test(ev.target.value)) {
-				alert('邮箱输入错误，请重新输入')
-				this.setState({
-					emonoff:false
-				})
-		}
-	}
+  blurem=(ev)=>{
+    let re=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+    if (!re.test(ev.target.value)) {
+        alert('邮箱输入错误，请重新输入')
+        this.setState({
+          emonoff:false
+        })
+    }else{
+      this.setState({
+        emonoff:true
+      })
+    }
+  }
 	render(){
 		let newhobdata=this.state.hobdata;
 		let list=newhobdata.map((e,i)=>{
@@ -230,10 +241,11 @@ class AboutMe extends Component{
 					<div className="clearfixqxk">
 						<span>邮箱</span>
 						<input
-				            type="text"
-				            value=""
-				            placeholder="请输入邮箱"
-										onBlur={this.blurem}
+							type="text"
+	            value={this.state.email}
+	            placeholder="请输入邮箱"
+	            onChange={this.changeemail}
+	            onBlur={this.blurem}
 						/>
 					</div>
 				</div>

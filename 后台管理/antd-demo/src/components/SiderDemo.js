@@ -10,6 +10,7 @@ import Sy from './js/Sy';
 import Userinfo from './js/Userinfo';
 import AboutMe from './js/AboutMe';
 import Passwd from './js/Passwd';
+import Article from './js/Article';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -163,7 +164,11 @@ class SiderDemo extends Component {
               key="sub3"
               title={<span><Icon type="team" /><span>文章统计</span></span>}
             >
-              <Menu.Item key="8">文章总数</Menu.Item>
+              <Menu.Item key="8">
+	              <Link to="/home/Article">
+	              文章列表
+	              </Link>
+              </Menu.Item>
               <Menu.Item key="9">待审核文章</Menu.Item>
               <Menu.Item key="10">添加文章</Menu.Item>
             </SubMenu>
@@ -243,6 +248,7 @@ class SiderDemo extends Component {
                 }}  />
                 <Route path = "/home/AboutMe" component = {AboutMe} />
                 <Route path ="/home/Passwd" component={Passwd}/>
+                <Route path ="/home/Article" component={Article}/>
               </Switch>
             </div>
           </Content>
