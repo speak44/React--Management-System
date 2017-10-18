@@ -3,7 +3,6 @@ import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 import { Button } from 'antd';
 import '../css/userinfo.css';
 import '../css/common.css';
-//删除后全选框的改变 未实现的功能！！！！ <已完成>
 //搜查询的功能 未实现！！！！！！！！！
 //userinfo tbody 内容
 class Tbodycont extends Component{

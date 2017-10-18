@@ -258,11 +258,10 @@ reset=()=>{
 	        </div>
 	        <div className="gradevip clearfixqxk">
 	          <span>会员状态</span>
-	          <div className="grandhy">
-	          <div
-              className="zhucevip"
+	          <div className="grandhy"
               onClick={this.clickcond}
               >
+	          <div className="zhucevip">
 	            <em  className="zhuccont">
 	              {this.state.cond}
 	            </em>

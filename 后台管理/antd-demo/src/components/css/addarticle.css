@@ -1,0 +1,61 @@
+.newindex{
+  width: 395px;
+}
+.newindex div span{
+  padding: 12px 0px;
+}
+.newindex div{
+  margin-top: 0;
+}
+.adcle span{
+  width: 80px
+}
+.adcle .indeshx{
+  width: 500px;
+  float: left;
+}
+.adcle .author{
+  float: left;
+  margin-right: 85px;
+}
+.adcle .author input{
+  width: 254px;
+}
+.adcle .retime{
+  float: left;
+}
+.adcle .retime .ant-input{
+   width: 260px;
+  height: 40px;
+  font-size: 12px;
+}
+.adcle .retime input{
+  padding: 10px 0px 10px 10px;
+}
+.adcle .ant-calendar-picker-icon{
+  position: absolute;
+  left: 173px;
+  top: 4px;
+}
+.addbrowse{
+  width: 285px
+}
+.adbpwbox{
+  float: none;
+  margin-bottom: 15px;
+}
+.abstract{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.esscont{
+  display: block;
+  font-size: 16px;
+  line-height: 46px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+.essadd{
+  margin-left: 0;
+}

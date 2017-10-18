@@ -3,5 +3,111 @@
 	border-left: 6px solid #009688;
 	padding-top: 21px;
 	padding-bottom: 19px;
+	padding-left:14px; 
 	background: #f2f2f2;
+}
+.wsearch{
+	width: 297px;
+	float: left;
+}
+.wsearch input{
+    width: 212px;
+    height: 45px;
+    outline: 0;
+    border: 2px solid #E6E6E6;
+    border-radius: 6px;
+    padding-left: 10px;
+    float: left;
+}
+.wsearch a{
+	float: right;
+	background: #199f93;
+    padding: 13px 21px 13px 21px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 18px;
+    border-radius: 4px;
+}
+.addwenz{
+	float: left;
+	background: #1866a1;
+	margin-left: 4px;
+    padding: 13px 21px 13px 21px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 18px;
+    border-radius: 4px;
+}
+.exavedwenz{
+	float: left;
+	margin-left: 4px;
+    padding: 13px 21px 13px 21px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 18px;
+    border-radius: 4px;
+    background: #199f93;
+}
+.batchdelwen{
+	background: #fe6737;
+	float: left;
+	margin-left: 4px;
+    padding: 13px 21px 13px 21px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 18px;
+    border-radius: 4px;	
+}
+.wcont{
+	width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-weight: normal;
+    color: #000;
+    border-top: 1px solid #e2e2e2;
+    background-color: white;	
+}
+.wcont thead{
+	display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-bottom: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
+    background: #f2f2f2;
+}
+.wcont span{
+	display: block;
+    width: 21px;
+    height: 21px;
+}
+.wcont thead th:nth-of-type(1){
+	padding: 12px 19px;
+    width: 9px;
+    cursor: pointer;
+}
+.wcont tbody tr td:nth-of-type(1) {
+	border-left: 1px solid #e2e2e2;
+    padding: 12px 19px;
+    width: 9px;
+    cursor: pointer;
+}
+.wcont thead th {
+    border-right: 1px solid #e2e2e2;
+}
+.wcont .checkall{
+	background: url(../img/checkone.png) no-repeat center;
+}
+.wcont tbody tr {
+    border-bottom: 1px solid #e2e2e2;
+}
+.wcont tbody td{
+	border-right: 1px solid #e2e2e2;
+}
+.wcont tbody tr td:nth-of-type(8) a {
+	display: block;
+	height: 29px;
+	width: 86px;
+	margin:5px auto;
 }

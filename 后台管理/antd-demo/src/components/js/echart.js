@@ -13,7 +13,7 @@ class Echarts extends Component {
         var myChart = echarts.init(document.getElementById('main'));
         // 绘制图表
         myChart.setOption({
-            title: { text: '折线图堆叠'},
+            title: { text: '每周统计更新文章数量'},
             tooltip: {trigger: 'axis'},
             legend: {
               data: ['邮件营销']
@@ -62,7 +62,7 @@ class Echarts extends Component {
                     position: 'bottom'
                 }
               },
-              data: [120, 132, 101, 134, 90, 230, 210],
+              data: [5, 7, 17, 4, 10, 15, 8],
               markPoint: { //设置最大值和最小值
                 data: [{
                     type: 'max',
@@ -77,7 +77,7 @@ class Echarts extends Component {
     }
     render() {
         return (
-            <div id="main" style={{ width: 400, height: 400 }}></div>
+            <div id="main" style={{ width: 500, height: 450 }}></div>
         );
     }
 }

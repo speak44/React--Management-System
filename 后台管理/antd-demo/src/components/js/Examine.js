@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import { Pagination } from 'antd';
-import '../css/article.css';
+import '../css/examine.css';
 
-class Article extends Component {
+class Examine extends Component {
 	constructor(){
 	 	super();
 	}
 	render() {
     	return (
-    		<div>文章列表
+    		<div>待审核文章
     		   <div className="whead">
     		   		<div className="whead-min clearfixqxk">
     		   			<div className="wsearch clearfixqxk">
@@ -60,35 +59,11 @@ class Article extends Component {
 								/>
 								</a>
 							</td>
-						</tr>
-						<tr>
-							<td><span className="checkall"></span></td>
-							<td>自定义模块名称可以包含吗</td>
-							<td>cccc</td>
-							<td>审核通过</td>
-							<td>开放浏览</td>
-							<td>是</td>
-							<td>2017-04-14</td>
-							<td>
-								<a href={'javascript:;'} className="w-del">
-								<img
-									src={require('../img/w-del.png')}
-								/>
-								</a>
-								< a href={'javascript:;'}
-									className="w-chouf"
-								>
-								<img
-									src={require('../img/w-chouf.png')}
-								/>
-								</a>
-							</td>
-						</tr>						
+						</tr>							
 					</tbody>
-				</table>
-				<Pagination defaultCurrent={1} total={50} />
+				</table>    		       			
     		</div>
     	)
-   	}
+   }
 }
-export default Article;
+export default Examine;

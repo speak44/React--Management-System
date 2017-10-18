@@ -3,9 +3,7 @@
     min-height: 417px;
 }
 .indc-top{
-
     text-align: center;
-    width: 969px;
     /*background: red;*/
 }
 .inta:hover i{
@@ -17,7 +15,7 @@
   height: 90px;
   display: block;
   float: left;
-  margin: 10px;
+  margin: 10px 80px 30px 20px;
   border-radius: 5px;
   background-color: #f2f2f2;
   overflow: hidden;
@@ -81,13 +79,13 @@
 }
 .hotess{
   float: left;
-  width: 583px;
-  height: 318px;
+  width: 722px;
+  height: 431px;
   padding-top: 20px;
   padding-left: 14px;
 }
 .hotes-top{
-  width: 540px;
+  width: 100%;
   padding: 11px 0px 18px 10px;
   background: #f2f2f2;
   border-left: 5px solid #009688;
@@ -108,7 +106,7 @@
   background: url(../img/hot.png)
 }
 .hotess ul{
-  width: 540px;
+  width: 100%;
   border-left:5px solid #e2e2e2 ;
   border-right: 1px solid #e2e2e2;
   border-top: 1px solid #e2e2e2;

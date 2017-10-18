@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
+import $ from 'jquery';
 import '../App.css';
 import './css/common.css';
 import './css/home.css';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import { Input } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Input, BackTop} from 'antd';
+//import { Input } from 'antd';
+import Weather from './js/Weather';
 import AddUser from './js/AddUser';
 import Sy from './js/Sy';
 import Userinfo from './js/Userinfo';
 import AboutMe from './js/AboutMe';
 import Passwd from './js/Passwd';
 import Article from './js/Article';
+import Examine from './js/Examine';
+import Addarticle from './js/Addarticle';
+//import { BackTop } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -169,8 +174,16 @@ class SiderDemo extends Component {
 	              文章列表
 	              </Link>
               </Menu.Item>
-              <Menu.Item key="9">待审核文章</Menu.Item>
-              <Menu.Item key="10">添加文章</Menu.Item>
+              <Menu.Item key="9">
+              	<Link to="/home/Examine">
+              	待审核文章
+              	</Link>
+              </Menu.Item>
+              <Menu.Item key="10">
+              	<Link to="/home/Addarticle">
+              	添加文章
+              	</Link>
+              </Menu.Item>
             </SubMenu>
             <Menu.Item key="11">
               <Icon type="file" />
@@ -187,12 +200,8 @@ class SiderDemo extends Component {
                 className='clearfixqxk'
                 onSearch={value => console.log(value)}
               />
-              <div className='syhead1'>
-                <span>北京</span>
-                <img
-                  src={require('./img/yang.png')}
-                />
-                <span>26°C</span>
+              <div>
+                <Weather/>
               </div>
               <div className='clearfixqxk hedgg'>
                 <div className='ggn'>系统公告</div>
@@ -249,6 +258,8 @@ class SiderDemo extends Component {
                 <Route path = "/home/AboutMe" component = {AboutMe} />
                 <Route path ="/home/Passwd" component={Passwd}/>
                 <Route path ="/home/Article" component={Article}/>
+                <Route path ="/home/Examine" component={Examine}/>
+                <Route path ="/home/Addarticle" component={Addarticle}/>
               </Switch>
             </div>
           </Content>
