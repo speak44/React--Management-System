@@ -33,23 +33,48 @@ class SiderDemo extends Component {
           {name:'张三',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/4/5 下午2:45:42',cheched:false},
           {name:'李四',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/5/5 下午2:45:42',cheched:false}
         ],
-        allonof:false
+        allonof:false,
+        serval:'javascript:;',
+        timer:null,
+        transzhuc:''
     }
+  }
+  componentDidMount(){
+
   }
   onCollapse = (collapsed) => {
     this.setState({ collapsed });
   }
+  // 百度搜索
+  sear=()=>{
+    let val=$('.seratext').val()
+    this.setState({
+      serval:`https://www.baidu.com/s?wd=${val}&cl=3`
+    })
+    $('.seratext').val('')
+  }
   //鼠标移入头像显示个人信息列表
   pres=(()=>{
     this.setState({
-       disshow:'block'
+       disshow:'block',
+       transzhuc:'rotate(180deg)'
     })
+    // $('.trani').transition
   });
   //鼠标移开头像隐藏个人信息列表
   presLeave=(()=>{
-    this.setState({
-       disshow:'none'
-    })
+    let _this=this
+    this.timer=setTimeout(function(){
+      _this.setState({
+         disshow:'none',
+        transzhuc:''
+      })
+		},500)
+
+  })
+  //鼠标移开ul关闭定时器
+  presul=(()=>{
+    clearInterval(this.timer)
   })
   //数组添加内容
   changedata=(newjson)=>{
@@ -194,12 +219,17 @@ class SiderDemo extends Component {
         <Layout>
           <Header style={{ background: '23262e', padding: 0 }}  className='clearfixqxk'>
             <div   className='clearfixqxk'>
-              <Search
-                placeholder="输入搜索内容"
-                style={{ width: 200,float: 'left',margin:'0 0 0 16px'}}
-                className='clearfixqxk'
-                onSearch={value => console.log(value)}
-              />
+              <div className="baidu clearfixqxk">
+                <input
+                  placeholder="百度搜索"
+                  className='clearfixqxk seratext'
+                />
+                <a href={this.state.serval}
+                  target="_blank"
+                  id="sear"
+                  onClick={this.sear}
+                  ></a>
+              </div>
               <div>
                 <Weather/>
               </div>
@@ -214,20 +244,23 @@ class SiderDemo extends Component {
                     <img src={require('./img/txian.png')}
                     />
                     <span className='ggn'>cici</span>
-                    <i>
+                    <i style={{transform:this.state.transzhuc}}>
                     </i>
                   </a>
                   <ul
                     style={{display:this.state.disshow}}
+                    onMouseEnter={this.presul}
                     >
-                    <li><
-                      a href={'javascript:;'} key='001'>个人资料</a>
+                    <li>
+                      <Link to="/home/AboutMe" key='001'>
+                        个人资料
+                      </Link>
                     </li>
                     <li>
-                      <a href={'javascript:;'} key='002'>修改密码</a>
+                      <Link to="/home/Passwd" key='002'>修改密码</Link>
                     </li>
                     <li>
-                      <a href={'javascript:;'} key='003'>退出</a>
+                      <Link to="/" key='003'>退出</Link>
                     </li>
                   </ul>
                 </div>

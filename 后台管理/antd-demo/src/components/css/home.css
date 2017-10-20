@@ -6,6 +6,10 @@
     margin-top: 20px;
     cursor: pointer;
 }
+.syhead1 img{
+  width: 22px;
+  height: 22px;
+}
 .syhead1 span{
   width: 34px;
   height: 24px;
@@ -72,7 +76,7 @@
   /*display: none;*/
   position: absolute;
   left: 20px;
-  top: 65px;
+  top: 45px;
   width: 111px;
   padding: 5px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,.12);
@@ -99,4 +103,35 @@
 .mes ul li a:hover{
   color: #fff;
   background-color: #5FB878;
+}
+.baidu{
+  float: left;
+  width: 217px;
+  height: 26px;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 3px;
+  margin-left: 40px;
+}
+.seratext{
+  width: 188px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 16px;
+  float: left;
+  left: 0;
+  outline: none;
+  border: 0;
+  padding-left: 13px;
+  border-top-left-radius:3px ;
+  border-bottom-left-radius: 3px;
+  border-right: 1px solid #000;
+}
+#sear{
+  float: right;
+  width: 23px;
+  height: 23px;
+  margin:2px;
+  background: url(../img/baiduser.png) no-repeat ;
+    border-radius: 3px;
 }
