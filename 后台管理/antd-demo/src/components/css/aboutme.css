@@ -40,8 +40,10 @@
 	height: 40px;
 }
 .abues .ant-cascader-picker-label{
-	width: 213px;
+	width: 116px;
 	height: 40px;
+	text-align: left;
+	padding-left: 3px;
 }
 .birth span{
 	line-height: 40px;
