@@ -32,7 +32,16 @@ class Home extends Component {
         })
       }
     })
-    console.log(user,pass)
+  }
+  //修改密码内容
+  newpas=(newpascont)=>{
+    let {arr}=this.state;
+    let arr2=Object.assign(arr)
+    arr2[0].password=newpascont;
+    this.setState({
+      arr:arr2
+    })
+    alert('提交成功')
   }
   render(){
     return (
@@ -40,12 +49,16 @@ class Home extends Component {
         <Switch>
           <Route exact path="/" render={()=>{
             return<Dl
+                arr={this.state.arr}
                 changebool={this.changebool}
               />
           }}/>
           <Route path="/home" render={()=>{
             if(this.state.bool){
-              return <SiderDemo/>
+              return <SiderDemo
+                arr={this.state.arr}
+                newpas={this.newpas}
+              />
             }else{
               return <Redirect to="/" />
             }

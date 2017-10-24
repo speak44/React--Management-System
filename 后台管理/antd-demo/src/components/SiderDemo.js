@@ -149,6 +149,10 @@ class SiderDemo extends Component {
       allonof:false
     })
   }
+  //修改密码改正
+  paschange=(newpascont)=>{
+    this.props.newpas(newpascont)
+  }
   render() {
     return (
       <Layout>
@@ -289,7 +293,12 @@ class SiderDemo extends Component {
                   />
                 }}  />
                 <Route path = "/home/AboutMe" component = {AboutMe} />
-                <Route path ="/home/Passwd" component={Passwd}/>
+                <Route path ="/home/Passwd" render={()=>{
+                  return <Passwd
+                    userarr={this.props.arr}
+                    paschange={this.paschange}
+                  />
+                }}/>
                 <Route path ="/home/Article" component={Article}/>
                 <Route path ="/home/Examine" component={Examine}/>
                 <Route path ="/home/Addarticle" component={Addarticle}/>

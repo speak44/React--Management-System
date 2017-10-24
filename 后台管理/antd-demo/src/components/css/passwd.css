@@ -1,3 +1,22 @@
 .newpas{
 	margin-bottom: 20px;
 }
+.abues .error{
+border: 1px solid red;
+}
+.abues .ok{
+
+border: 1px solid green;
+}
+.userpasswdcont em{
+	float: left;
+	width: 53px;
+	height: 42px;
+	margin-left: 20px;
+}
+.userpasswdcont .bgok{
+	background: url(../img/passok.png) no-repeat center;
+}
+.userpasswdcont .bgerror{
+	background: url(../img/passerro.png) no-repeat center;
+}

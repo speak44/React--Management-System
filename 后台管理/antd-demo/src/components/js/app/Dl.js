@@ -32,6 +32,7 @@ class Dl extends Component {
     }
   }
   render(){
+    console.log(this.props.arr[0].password)
     return (
       <div className='addlogin'>
         <h3>管理员登录</h3>
@@ -50,7 +51,7 @@ class Dl extends Component {
               <input
                 type="password"
                 value={this.state.pass}
-                placeholder="管理员登录密码:admin"
+                placeholder={"管理员登录密码:"+this.props.arr[0].password}
                 className="account"
                 onChange={this.changepass}
               />
