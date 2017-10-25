@@ -40,7 +40,7 @@ class Passwd extends Component {
 					alert('不能与旧密码一样')
 					$(ev.target).attr('class', 'error');
 					$(ev.target).next('em').attr('class', 'bgerror');
-		}else if(!this.state.newcodeword===''){
+		}else if(this.state.newcodeword===''){
 					alert('请输入内容')
 					$(ev.target).attr('class', 'error');
 					$(ev.target).next('em').attr('class', 'bgerror');

@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import moment from 'moment';
 import LzEditor from 'react-lz-editor';
-import {DatePicker, Button, message} from 'antd';
+import { DatePicker } from 'antd';
 import '../css/editor.css';
 import '../css/addarticle.css';
+const { MonthPicker, RangePicker } = DatePicker;
 //子组件引入
 class Custom extends Component {
 	constructor(){
@@ -29,13 +31,27 @@ class Custom extends Component {
 	}
 }
 //父组件引入
-const { RangePicker } = DatePicker;
+function range(start, end) {
+  const result = [];
+  for (let i = start; i < end; i++) {
+    result.push(i);
+  }
+  return result;
+}
+function disabledDate(current) {
+  // Can not select days before today and today
+  return current && current.valueOf() < Date.now();
+}
+function disabledDateTime() {
+  return {
+    disabledHours: () => range(0, 24).splice(4, 20),
+    disabledMinutes: () => range(30, 60),
+    disabledSeconds: () => [55, 56],
+  };
+}
+//确认的发布时间
 	function onChange(value, dateString) {
-	  console.log('Selected Time: ', value);
-	  console.log('Formatted Selected Time: ', dateString);
-	}
-	function onOk(value) {
-	  console.log('onOk: ', value);
+	  console.log( dateString);
 	}
 class Addarticle extends Component {
    constructor(props) {
@@ -48,6 +64,8 @@ class Addarticle extends Component {
 					 {indexname:'审核',indonoff:false},
 					 {indexname:'展示',indonoff:false}
 				 ],
+				 arttitle:'',
+
 				 conddis:'none',
 				 zhuconoff:true,
 				 transzhuc:'',
@@ -129,6 +147,8 @@ class Addarticle extends Component {
 	    				<span>文件标题</span>
 						<input type="text"
 							placeholder="请输入文件标题"
+							value={this.state.arttitle}
+							onChange={this.changeatrtitle}
 						/>
 	    			</div>
 	    			<div className="clearfixqxk">
@@ -147,11 +167,12 @@ class Addarticle extends Component {
 	    				<div className="retime clearfixqxk">
 	    					<span>发布时间</span>
 	 					    <DatePicker
-						      showTime
-						      format="YYYY-MM-DD HH:mm:ss"
+									format="YYYY-MM-DD HH:mm:ss"
+						      disabledDate={disabledDate}
+						      disabledTime={disabledDateTime}
+						      showTime={{ defaultValue: moment('00:00:00', 'HH:mm:ss') }}
 						      placeholder="Select Time"
 						      onChange={onChange}
-						      onOk={onOk}
 						    />
 	    				</div>
 	    			</div>

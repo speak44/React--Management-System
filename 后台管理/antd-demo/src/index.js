@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SiderDemo from './components/SiderDemo';
 import Dl from './components/js/app/Dl';
+import createHistory from 'history/createBrowserHistory';
 import {BrowserRouter as Router,Route,Link,Switch,Redirect} from 'react-router-dom';
+const history = createHistory()
 class Home extends Component {
   constructor(){
     super()
@@ -39,10 +41,14 @@ class Home extends Component {
     let arr2=Object.assign(arr)
     arr2[0].password=newpascont;
     this.setState({
-      arr:arr2
+      arr:arr2,
+      bool:false
     })
     alert('提交成功')
+    history.push('/')
+
   }
+
   render(){
     return (
       <Router>

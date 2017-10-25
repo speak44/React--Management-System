@@ -32,7 +32,6 @@ class Dl extends Component {
     }
   }
   render(){
-    console.log(this.props.arr[0].password)
     return (
       <div className='addlogin'>
         <h3>管理员登录</h3>
