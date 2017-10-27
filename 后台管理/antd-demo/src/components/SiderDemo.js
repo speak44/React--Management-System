@@ -33,6 +33,7 @@ class SiderDemo extends Component {
           {name:'张三',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/4/5 下午2:45:42',cheched:false},
           {name:'李四',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/5/5 下午2:45:42',cheched:false}
         ],
+        
         allonof:false,
         serval:'javascript:;',
         timer:null,

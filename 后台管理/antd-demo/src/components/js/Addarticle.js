@@ -64,11 +64,20 @@ class Addarticle extends Component {
 					 {indexname:'审核',indonoff:false},
 					 {indexname:'展示',indonoff:false}
 				 ],
+				//文章标题
 				 arttitle:'',
-
+				 //文章作者
+				 autwriter:'',
+				 //关键字
+				 keyword:'',
+				 //内容摘要
+				 model:'',
+				 //文章内容
+				 txt:'',
 				 conddis:'none',
 				 zhuconoff:true,
 				 transzhuc:'',
+				 //浏览权限
 				 cond:'开放浏览',
 				 transzhuc:'',
 				 conddis:'none',
@@ -78,6 +87,7 @@ class Addarticle extends Component {
       }
    }
    receiveMarkdown = (content) => {
+		//  console.log(content)
       this.setState({txt: content});
    }
 	 //自定义属性点击事件
@@ -161,7 +171,9 @@ class Addarticle extends Component {
 	    				<div className="author">
 	    					<span>文章作者</span>
 							<input type="text"
+								value={this.state.autwriter}
 								placeholder="请输入作者的名称"
+								onChange={this.changeautwriter}
 							/>
 	    				</div>
 	    				<div className="retime clearfixqxk">
@@ -204,20 +216,30 @@ class Addarticle extends Component {
 	    			<div>
 	    				<span>关键字</span>
 						<input type="text"
+							value={this.state.keyword}
 							placeholder="请输入文章关键字"
+							onChange={this.changekeyword}
 						/>
 	    			</div>
 	    			<div className="abstract">
 	    				<span>内容摘要</span>
 						<input type="text"
+							value={this.state.model}
 							placeholder="请输入内容摘要"
+							onChange={this.changemodel}
 						/>
 	    			</div>
 	    		</div>
     			<div >
     				<span className="esscont">文章内容</span>
     				<div className="editorBox">
-<LzEditor active={true} importContent={this.state.markdownContent} cbReceiver={this.receiveMarkdown} image={false} video={false} audio={false} convertFormat="markdown"/>
+							<LzEditor
+								active={true}
+								importContent={this.state.markdownContent} cbReceiver={this.receiveMarkdown}
+								image={false}
+								video={false}
+								audio={false}
+								convertFormat="markdown"/>
     				</div>
     			</div>
 					<div className="subtjc essadd">

@@ -18,7 +18,7 @@ class Examine extends Component {
     		   			</div>
     		   			<a href={'javascript:;'} className="addwenz">添加文章</a>
     		   			<a href={'javascript:;'} className="exavedwenz">审核文章</a>
-    		   			<a href={'javascript:;'} className="batchdelwen">批量删除</a>    		 
+    		   			<a href={'javascript:;'} className="batchdelwen">批量删除</a>
     		   		</div>
     		   	</div>
 				<table  className="wcont">
@@ -51,17 +51,31 @@ class Examine extends Component {
 									src={require('../img/w-del.png')}
 								/>
 								</a>
-								< a href={'javascript:;'}
-									className="w-chouf"
-								>
+								<a href={'javascript:;'} className="w-chouf">
 								<img
 									src={require('../img/w-chouf.png')}
 								/>
 								</a>
+								<a href={'javascript:;'} className="w-chak">
+									<img src={require('../img/w-bianj.png')}></img>
+									<div className="ViewArticleList">
+										<div className="ViewArticleListmask"></div>
+										<div className="ViewArticleListcont">
+											<div className="viewarttitle">
+													<span>文件标题：</span>
+													<p></p>
+											</div>
+											<div>
+													<span>作者：</span>
+													<p></p>
+											</div>
+										</div>
+									</div>
+								</a>
 							</td>
-						</tr>							
+						</tr>
 					</tbody>
-				</table>    		       			
+				</table>
     		</div>
     	)
    }
