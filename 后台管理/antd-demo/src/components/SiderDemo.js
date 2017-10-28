@@ -33,15 +33,73 @@ class SiderDemo extends Component {
           {name:'张三',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/4/5 下午2:45:42',cheched:false},
           {name:'李四',email:'1234@qq.com',sex:'男',vip:'高级会员',cond:'正常使用',time:'2017/5/5 下午2:45:42',cheched:false}
         ],
-        
+        articlearr:[
+          {
+          title:'《Web应用安全权威指南》读后有感',
+          writer:'王辉',
+          audit:'审核通过',
+          authoritymanagement:'开放浏览',
+          exhibition:'是',
+          time:'2017-10-29 02:02:05',
+          cheched:false,
+          text:'整体给人很严谨很仔细，有时可以说是有点啰嗦了，当然这并没有任何的贬义。相反，这对于新手入门来说，是一大利好。新手入门往往充满着敬畏与迷茫，如果上来就是各种大术语,高精尖的漏洞利用，往往会让人望而生畏，失去继续学习的动力。这本权威指南总的来说还是很不错的，对Web漏洞这块的讲解翔实仔细，分类也是比一般的书更为精细，如果通篇读下来，对Web漏洞的原理以及基本防范措施,基本能做到心中有数。全书共分为8章，重点是第四章“Web应用的各种安全隐患”，我自己也是这章花的时间最多。前面的包括搭建环境，同源策略，HTTP协议这些都比较熟悉，所以很快地浏览完了。关于第四章的漏洞讲解，我也基本上同时参照了所给的虚拟机环境以及Fiddler，进行了同步的操作。原来对XSS SQL注入 CSRF这些都有过了解，但是仅限于一些简单的构造和利用，对前后台交互层面的原理不得而知，阅读完这几章之后，有了更加深刻的认知。当然深知这是不够的，以后的打算是进一步深刻理解这些漏洞原理，通过Kali Linux的相关工具在实战中联系这些漏洞的利用。同时工具不能仅限于使用，还要明白其底层原理。自己也同时在学习Python,准备重点是网络编程这块，利用好自带的安全的库，尝试写一些工具脚本。学习是一个循序渐进的过程，读完一本书并不仅限于学到其中的知识，而是将原来一知半解的东西弄懂，并且对未来的学习路径有了更清晰的认知。能够调整节奏与方向，更好的完成知识积累，技术栈的完善。当然，这本书也存在一些个人认为的缺陷。书是日本作家写的，虚拟机环境也是日文的，如今翻译到国内了，虚拟机应该也做相应的调整。满眼的日文，确实是不太友好。希望日后能够改善，为入门者提供一个更加和谐 友好的实战环境。以上是本人在读罢《Web应用安全权威指南》的一些感受，个人所感，文笔与水平有限，望各位大佬多多指教。'
+          },
+          {
+          title:'CSS发展史',
+          writer:'沈晨',
+          audit:'待审核',
+          authoritymanagement:'开放浏览',
+          exhibition:'是',
+          time:'2017-10-29 02:02:05',
+          cheched:false,
+          text:'CSS（Cascading Style Sheets，层叠样式表）是一种将表示样式应用到标记的系统。CSS以设计、改变其HTML页面的样式而知名，并使用于Web和其他媒介，如XML文档中。1996年12月W3C推出了CSS规范的第一个版本，1998年W3C发布了CSS的第二个版本即CSS2.0,2001年5月W3C开始进行CSS3标准的制定，到目前为止该标准还没有最终定稿。'
+          },
+          {
+          title:'HTTP',
+          writer:'赵可欣',
+          audit:'待审核',
+          authoritymanagement:'会员浏览',
+          exhibition:'是',
+          time:'2017-10-29 02:02:05',
+          cheched:false,
+          text:'HTTP主要解决的是客户端到服务器端如何传递HTML信息的问题。 （脑补一下，左侧PC，右侧Server)站在PC端的角度，我们需要考虑的是如何发出请求; 站在服务器的角度，则需要考虑如何响应。"请求"考虑的是到底有哪些方法，例如GET，POST等等。"响应"考虑的是响应消息的类型，也叫做状态码。那么在类似购物网站中，服务器如何识别用户身份呢？在客户端PC那里画个Cookie。 PC和Server之间如何有效的传递信息呢？再在PC和Server之间画个通道，写上四种连接方法。'
+          },
+          {
+          title:' Facebook拒修改React开源许可，你会对React说再见吗？',
+          writer:'赵可欣',
+          audit:'待审核',
+          authoritymanagement:'会员浏览',
+          exhibition:'否',
+          time:'2017-10-29 02:02:05',
+          cheched:false,
+          text:'据了解，Facebook几周前发表了一篇名为《关于React使用许可协议的官方声明》的申明。声明中称，任何人不能将React用于与Facebook及其合作公司有直接或间接竞争关系的项目中，否则Facebook公司自动取消其使用许可。Facebook 在 React 的专利许可证里“偷跑”了一堆让开发者恐慌和心寒的条款，直白的翻一下，大意是如果你在你的产品里用到了 React，哪怕只有一点点，你对于产品所拥有的知识产权也等于直接送给 Facebook 免费用。React作为Facebook 内部开发 Instagram 的项目中，是一个用来构建用户界面的优秀 JS 库，于 2013 年 5 月开源。随着React用户的增多，Facebook在 2016 年7月，修改了开源许可协议中的附加专利条款 Additional patent grant，并在当时引起了强烈的讨论。而在今年的7月16号，由于Facebook之前存在的协议，Apache 基金会把 Facebook BSD+Patents 加入了黑名单，并从开源项目中移除。就在昨天，知名技术博客平台WordPress创始人Matt在其博客上发文，将全面停止使用React，原因则是专利问题。同时，一些国内大公司也因 Facebook条款 有逐步停用 React / React Native 技术栈呢？为前端的三大框架之一，React的应用可以说是非常的广泛，包括BAT在内的许多大公司很多项目都是基于其开发的。根据Facebook 的附加协议，所有采用React框架的项目(事实上)将全部免费赠予facebook使用，这对于大公司来说无疑不是灾难性的。以百度为例，按照React目前协议，facebook事实上可以免费大胆的使用百度人工智能、自动驾驶方面获颁的专利，为了不让Facebook获取相关的敏感信息，唯一选择就是不让公司的前端使用React。这样看来，美帝国主义确实是比较恶心的。'
+        },
+        {
+        title:'Vue和React的使用场景和深度有何不同？',
+        writer:'尤雨溪',
+        audit:'审核通过',
+        authoritymanagement:'会员浏览',
+        exhibition:'是',
+        time:'2017-10-29 02:02:05',
+        cheched:false,
+        text:'首先，其实 Vue 也完全可以全量赋值的，唯一需要的小优化就是给 v-repeat 列表一个 track-by 属性，提示一下如何判断两个对象是否是同一份数据。如果是没有复杂交互的列表，可以直接 track-by="$index" 原地复用 DOM 元素。合理使用 track-by 的情况下，Vue 甚至可以比 React 更快（这里渲染的是 100 * 5 的数据表，每一帧都是全量新数据赋值）：dbmon (Vue)dbmon (react)在超大量数据的首屏渲染速度上，React 有一定优势，因为 Vue 的渲染机制启动时候要做的工作比较多，而且 React 支持服务端渲染。需要指出的一点：React 的 Virtual DOM 也不是不需要优化的。复杂的应用里你有两个选择 1. 手动添加 shouldComponentUpdate 来避免不需要的 vdom re-render；2. Components 尽可能都用 pureRenderMixin，然后采用 Flux 结构 + Immutable.js。其实也不是那么简单的。相比之下，Vue 由于采用依赖追踪，默认就是优化状态：你动了多少数据，就触发多少更新，不多也不少。说起 Flux 架构，FB 提供的标准实现非常繁琐，所以社区的各种造轮子版本层出不穷，目前其实还没有找到一个公认的最佳实践，而且大部分新 Flux 实现都引入了很多函数式概念，你如果对函数式编程不熟悉，光搞清楚那些概念就得花很久。'
+        },
+        {
+        title:'jquery框架是什么？',
+        writer:'周海军',
+        audit:'审核通过',
+        authoritymanagement:'会员浏览',
+        exhibition:'否',
+        time:'2017-10-29 02:02:05',
+        cheched:false,
+        text:'jQuery是一套跨浏览器的JavaScript函式库，简化了HTML和JavaScript之间的操作.jQuery是开源软件，使用MIT许可证授权 jQuery的语法设计使得许多操作变得容易，如操作文档对象（document）、选择文档对象模型（DOM）元素、创建动画效果、处理事件、以及开发Ajax程序。jQuery也提供了给开发人员在其上创建插件的能力。这使开发人员可以对底层交互与动画、高级效果和高级主题化的组件进行抽象化。模块化的方式使jQuery函数库能够创建功能强大的动态网页以及网络应用程序。'
+        }
+        ],
         allonof:false,
         serval:'javascript:;',
         timer:null,
         transzhuc:''
     }
-  }
-  componentDidMount(){
-
   }
   onCollapse = (collapsed) => {
     this.setState({ collapsed });
@@ -300,7 +358,11 @@ class SiderDemo extends Component {
                     paschange={this.paschange}
                   />
                 }}/>
-                <Route path ="/home/Article" component={Article}/>
+                <Route path ="/home/Article"  render={()=>{
+                  return <Article
+                      articlearr={this.state.articlearr}
+                  />
+                }}/>
                 <Route path ="/home/Examine" component={Examine}/>
                 <Route path ="/home/Addarticle" component={Addarticle}/>
               </Switch>

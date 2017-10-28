@@ -1,12 +1,145 @@
 import React, {Component} from 'react';
 import { Pagination } from 'antd';
 import '../css/article.css';
+import '../css/examine.css';
+import wchouf from '../img/w-chouf.png';
+import wchouf2 from '../img/w-chouf2.png';
+//子组件
+class  ArticleChildComponents extends Component{
+	constructor(){
+		super();
+		this.state={
+				disshow:'none',
+				ctrl:wchouf,
+				ctrlonoff:true
+		}
+	}
+	//点击查看按钮
+	clicklookover=()=>{
+		this.setState({
+				disshow:'block'
+		})
+	}
+	//点击关闭查看按钮  x
+	clonse=()=>{
+		this.setState({
+				disshow:'none'
+		})
+	}
+	//点击收藏按钮
+	Favorites=()=>{
+		if (this.state.ctrlonoff) {
+			this.setState({
+					ctrl:wchouf2,
+					ctrlonoff:false
+			})
+		}else{
+			this.setState({
+					ctrl:wchouf,
+					ctrlonoff:true
+			})
+		}
+	}
+	render(){
+		let {title,writer,audit,authoritymanagement,exhibition,time,cheched,text}=this.props;
+		let sclass=exhibition==='是'?'show':'onshow'
+		return(
+				<tr>
+					<td><span className="checkall"></span></td>
+					<td>{title}</td>
+					<td>{writer}</td>
+					<td>{audit}</td>
+					<td>{authoritymanagement}</td>
+					<td className="Presentation">
+						<div className={sclass}></div>
+					</td>
+					<td>{time}</td>
+					<td>
+						<div className="wenazuhe">
+							<a href={'javascript:;'} className="w-del">
+							<img
+								src={require('../img/w-del.png')}
+							/>
+							</a>
+							<a href={'javascript:;'}
+								className="w-chouf"
+								onClick={this.Favorites}
+								>
+							<img
+								src={this.state.ctrl}
+							/>
+							</a>
+							<a href={'javascript:;'} className="w-chak">
+								<div
+									onClick={this.clicklookover}
+									>
+										<img src={require('../img/w-bianj.png')}></img>
+								</div>
+								<div className="ViewArticleList" style={{display:this.state.disshow}}>
+									<div className="ViewArticleListmask"></div>
+									<div className="ViewArticleListcont">
+										<em
+											onClick={
+												this.clonse
+											}></em>
+										<div className="viewarttitle clearfixqxk">
+												<span>文件标题：</span>
+												<p>{title}</p>
+										</div>
+										<div className="viewarwenzuo clearfixqxk">
+												<div className=" writer clearfixqxk">
+													<span>作&nbsp;&nbsp;&nbsp;者：</span>
+													<p>{writer}</p>
+												</div>
+												<div className="release clearfixqxk">
+													<span>发布时间：</span>
+													<p >{time}</p>
+												</div>
+												<div className="permission clearfixqxk">
+													<span>浏览权限：</span>
+													<p>{authoritymanagement}</p>
+												</div>
+												<div>
+													<span>审核状态：</span>
+													<p>{audit}</p>
+												</div>
+										</div>
+											<textarea>
+												{text}
+											</textarea>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div></div>
+					</td>
+				</tr>
+		)
+	}
+}
 
+//父组件
 class Article extends Component {
 	constructor(){
 	 	super();
 	}
 	render() {
+		let articlearr=this.props.articlearr;
+		let list = articlearr.map((e,i) => {
+			let data={
+				id:i,
+				key:i,
+				title:e.title,
+				writer:e.writer,
+				audit:e.audit,
+				authoritymanagement:e.authoritymanagement,
+				exhibition:e.exhibition,
+				time:e.time,
+				cheched:e.cheched,
+				text:e.text
+			}
+				return <ArticleChildComponents {...data} />
+		});
     	return (
     		<div>文章列表
     		   <div className="whead">
@@ -19,7 +152,7 @@ class Article extends Component {
     		   			</div>
     		   			<a href={'javascript:;'} className="addwenz">添加文章</a>
     		   			<a href={'javascript:;'} className="exavedwenz">审核文章</a>
-    		   			<a href={'javascript:;'} className="batchdelwen">批量删除</a>    		 
+    		   			<a href={'javascript:;'} className="batchdelwen">批量删除</a>
     		   		</div>
     		   	</div>
 				<table  className="wcont">
@@ -38,52 +171,7 @@ class Article extends Component {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td><span className="checkall"></span></td>
-							<td>自定义模块名称可以包含吗</td>
-							<td>cccc</td>
-							<td>审核通过</td>
-							<td>开放浏览</td>
-							<td>是</td>
-							<td>2017-04-14</td>
-							<td>
-								<a href={'javascript:;'} className="w-del">
-								<img
-									src={require('../img/w-del.png')}
-								/>
-								</a>
-								< a href={'javascript:;'}
-									className="w-chouf"
-								>
-								<img
-									src={require('../img/w-chouf.png')}
-								/>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td><span className="checkall"></span></td>
-							<td>自定义模块名称可以包含吗</td>
-							<td>cccc</td>
-							<td>审核通过</td>
-							<td>开放浏览</td>
-							<td>是</td>
-							<td>2017-04-14</td>
-							<td>
-								<a href={'javascript:;'} className="w-del">
-								<img
-									src={require('../img/w-del.png')}
-								/>
-								</a>
-								< a href={'javascript:;'}
-									className="w-chouf"
-								>
-								<img
-									src={require('../img/w-chouf.png')}
-								/>
-								</a>
-							</td>
-						</tr>						
+							{list}
 					</tbody>
 				</table>
 				<Pagination defaultCurrent={1} total={50} />

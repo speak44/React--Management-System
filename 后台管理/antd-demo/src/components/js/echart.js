@@ -7,6 +7,7 @@ import 'echarts/lib/chart/line';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 
+
 class Echarts extends Component {
     componentDidMount() {
         // 基于准备好的dom，初始化echarts实例
@@ -16,7 +17,7 @@ class Echarts extends Component {
             title: { text: '每周统计更新文章数量'},
             tooltip: {trigger: 'axis'},
             legend: {
-              data: ['邮件营销']
+              data: ['当日总数']
             },
             grid: {
               left: '3%',
@@ -75,6 +76,7 @@ class Echarts extends Component {
             }]//series:
         });
     }
+
     render() {
         return (
             <div id="main" style={{ width: 500, height: 450 }}></div>

@@ -61,6 +61,7 @@
 }
 .uifotab tbody td{
 	 border-right: 1px solid #e2e2e2;
+   overflow: hidden;
 }
 .checkall{
 	display: block;

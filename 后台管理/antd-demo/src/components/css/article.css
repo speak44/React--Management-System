@@ -3,7 +3,7 @@
 	border-left: 6px solid #009688;
 	padding-top: 21px;
 	padding-bottom: 19px;
-	padding-left:14px; 
+	padding-left:14px;
 	background: #f2f2f2;
 }
 .wsearch{
@@ -56,7 +56,7 @@
     color: #fff;
     font-size: 16px;
     line-height: 18px;
-    border-radius: 4px;	
+    border-radius: 4px;
 }
 .wcont{
 	width: 100%;
@@ -67,7 +67,7 @@
     font-weight: normal;
     color: #000;
     border-top: 1px solid #e2e2e2;
-    background-color: white;	
+    background-color: white;
 }
 .wcont thead{
 	display: table-header-group;
@@ -103,11 +103,22 @@
     border-bottom: 1px solid #e2e2e2;
 }
 .wcont tbody td{
+	padding: 0px 5px;
 	border-right: 1px solid #e2e2e2;
 }
 .wcont tbody tr td:nth-of-type(8) a {
 	display: block;
 	height: 29px;
-	width: 86px;
-	margin:5px auto;
+	margin:5px;
+	float: left;
+}
+.wcont tbody tr .w-chak{
+	margin: 0;
+}
+.wenazuhe{
+	margin: 0 auto;
+	width: 260px;
+	/*height: 100%;*/
+	overflow: hidden;
+	text-align: center;
 }

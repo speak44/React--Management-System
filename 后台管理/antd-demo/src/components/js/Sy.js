@@ -71,7 +71,7 @@ class Sy extends Component {
         </div>
         <div className='indc-comit clearfixqxk'>
           <div className='echar'>
-            <Echarts/>
+              <Echarts/>
           </div>
           <div className='hotess'>
             <div className='hotes-top clearfixqxk'>
@@ -102,7 +102,7 @@ class Sy extends Component {
               <li>
                 <span>css3用transition实现边框动画效果</span>
                 <span>2017-04-14</span>
-              </li>              
+              </li>
             </ul>
           </div>
         </div>
