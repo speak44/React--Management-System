@@ -20,7 +20,8 @@ class Passwd extends Component {
 	}
 	//旧密码 失焦事件
 	oldcode=(ev)=>{
-			if (ev.target.value==this.props.userarr[0].password) {
+			let arr=JSON.parse(localStorage.getItem('arr'))
+			if (ev.target.value==arr[0].password) {
 					$(ev.target).attr('class', 'ok');
 					$(ev.target).next('em').attr('class', 'bgok');
 			}else{
@@ -36,7 +37,8 @@ class Passwd extends Component {
 	}
 	//新密码 失焦事件
 	newcode=(ev)=>{
-		if (this.state.newcodeword===this.props.userarr[0].password) {
+		let arr=JSON.parse(localStorage.getItem('arr'))
+		if (this.state.newcodeword===arr[0].password) {
 					alert('不能与旧密码一样')
 					$(ev.target).attr('class', 'error');
 					$(ev.target).next('em').attr('class', 'bgerror');

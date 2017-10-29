@@ -101,6 +101,22 @@ class SiderDemo extends Component {
         transzhuc:''
     }
   }
+  componentDidMount(){
+    console.log(JSON.parse(localStorage.getItem('aduser')))
+
+    if(JSON.parse(localStorage.getItem('aduser')).length!==0){
+      let ad2= JSON.parse(localStorage.getItem('aduser'))
+      this.setState({
+        aduser:ad2
+      })
+    }else{
+      localStorage.setItem('aduser',JSON.stringify(this.state.aduser));
+      let ad2= JSON.parse(localStorage.getItem('aduser'))
+      this.setState({
+        aduser:ad2
+      })
+    }
+  }
   onCollapse = (collapsed) => {
     this.setState({ collapsed });
   }
@@ -137,13 +153,13 @@ class SiderDemo extends Component {
   })
   //数组添加内容
   changedata=(newjson)=>{
-    console.log(newjson)
     let {aduser}=this.state;
     let aduser2=Object.assign(aduser);
     aduser2.unshift(newjson);
     this.setState({
       aduser:aduser2
     })
+     localStorage.setItem('aduser',JSON.stringify(this.state.aduser));
   }
   //删除用户内容
   remove=(newid)=>{
@@ -155,6 +171,7 @@ class SiderDemo extends Component {
     this.setState({
       aduser:aduser2
     })
+    localStorage.setItem('aduser',JSON.stringify(aduser2));
   }
   //选中画√
   clickright=(newid)=>{
@@ -173,6 +190,7 @@ class SiderDemo extends Component {
       aduser:aduser2,
       allonof:all
     })
+   localStorage.setItem('aduser',JSON.stringify(aduser2));
   }
   //全选按钮触发
   allclick=()=>{
@@ -195,6 +213,7 @@ class SiderDemo extends Component {
         allonof:true
       })
     }
+     localStorage.setItem('aduser',JSON.stringify(aduser2));
   }
   //批量删除
   alldel=()=>{
@@ -207,6 +226,7 @@ class SiderDemo extends Component {
       aduser:aduser2,
       allonof:false
     })
+     localStorage.setItem('aduser',JSON.stringify(aduser2));
   }
   //修改密码改正
   paschange=(newpascont)=>{
@@ -335,7 +355,7 @@ class SiderDemo extends Component {
               <Breadcrumb.Item>首页</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', height: 613,overflow:'auto'}}>
+            <div style={{ padding:24, background: '#fff', height: 613,overflow:'auto'}}>
               <Switch>
                 <Route exact path = "/home" component = {Sy} />
                 <Route path = "/home/AddUser" render={()=>{
@@ -343,7 +363,7 @@ class SiderDemo extends Component {
                 }} />
                 <Route path = "/home/Userinfo" render={()=>{
                   return<Userinfo
-                    aduser={this.state.aduser}
+                    // aduser={this.state.aduser}
                     remove={this.remove}
                     clickright={this.clickright}
                     allclick={this.allclick}
@@ -354,7 +374,7 @@ class SiderDemo extends Component {
                 <Route path = "/home/AboutMe" component = {AboutMe} />
                 <Route path ="/home/Passwd" render={()=>{
                   return <Passwd
-                    userarr={this.props.arr}
+                    // userarr={this.props.arr}
                     paschange={this.paschange}
                   />
                 }}/>

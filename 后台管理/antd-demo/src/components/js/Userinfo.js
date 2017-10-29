@@ -49,8 +49,10 @@ class Userinfo extends Component {
 		this.props.alldel()
 	}
 	render(){
+		let initArr = JSON.parse(localStorage.getItem('aduser'))
+		// console.log(initArr)
 		let allclass=this.props.allonof?'checktow':'checkall';
-		let initArr = this.props.aduser;
+		// let initArr = this.props.aduser;
 		let list = initArr.map((e,i) => {
 			let data={
 				id:i,
@@ -67,9 +69,7 @@ class Userinfo extends Component {
 				allclick:this.props.allclick
 			}
 				return <Tbodycont {...data} />
-
 		});
-
 		return(
 			<div className="uifo">
 				<div className="ufo-head">

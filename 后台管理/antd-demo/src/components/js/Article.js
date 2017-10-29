@@ -111,7 +111,9 @@ class  ArticleChildComponents extends Component{
 								</div>
 							</a>
 						</div>
-						<div></div>
+						<div>
+
+						</div>
 					</td>
 				</tr>
 		)
