@@ -99,3 +99,16 @@
 .onshow{
   background: url(../img/w-fo.png) no-repeat center;
 }
+.checkall{
+	display: block;
+	width: 21px;
+	height:21px;
+	background: url(../img/checkone.png) no-repeat center;
+}
+/*有背景颜色的cheackspan*/
+.checktow{
+  display: block;
+  width: 21px;
+  height:21px;
+	background: url(../img/checktwo.png) no-repeat center;
+}

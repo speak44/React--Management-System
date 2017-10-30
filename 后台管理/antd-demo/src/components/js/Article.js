@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Pagination } from 'antd';
+import '../css/common.css';
 import '../css/article.css';
 import '../css/examine.css';
 import wchouf from '../img/w-chouf.png';
@@ -10,8 +11,6 @@ class  ArticleChildComponents extends Component{
 		super();
 		this.state={
 				disshow:'none',
-				ctrl:wchouf,
-				ctrlonoff:true
 		}
 	}
 	//点击查看按钮
@@ -26,26 +25,34 @@ class  ArticleChildComponents extends Component{
 				disshow:'none'
 		})
 	}
-	//点击收藏按钮
+	//文章-点击收藏按钮
 	Favorites=()=>{
-		if (this.state.ctrlonoff) {
-			this.setState({
-					ctrl:wchouf2,
-					ctrlonoff:false
-			})
-		}else{
-			this.setState({
-					ctrl:wchouf,
-					ctrlonoff:true
-			})
-		}
+		this.props.collectclick(this.props.id)
+	}
+	//选中单个画√，改变数组中cheched的布尔值为true
+	 articleclickright=()=>{
+		this.props. articleclickright(this.props.id)
+	}
+	//单个文件删除按钮
+	artremoveone=()=>{
+		console.log(1)
+		this.props.artremoveone(this.props.id)
 	}
 	render(){
-		let {title,writer,audit,authoritymanagement,exhibition,time,cheched,text}=this.props;
+		let {title,writer,audit,authoritymanagement,exhibition,time,cheched,text,collect}=this.props;
+		//是否展示引用的class名
 		let sclass=exhibition==='是'?'show':'onshow'
+		//收藏点击更换图片
+		let collectimg=collect?wchouf2:wchouf;
+		//选中更换class名
+		let atrright=cheched?'checktow':'checkall';
 		return(
 				<tr>
-					<td><span className="checkall"></span></td>
+					<td><span
+						onClick={this.articleclickright}
+						className={atrright}
+						></span>
+					</td>
 					<td>{title}</td>
 					<td>{writer}</td>
 					<td>{audit}</td>
@@ -56,7 +63,10 @@ class  ArticleChildComponents extends Component{
 					<td>{time}</td>
 					<td>
 						<div className="wenazuhe">
-							<a href={'javascript:;'} className="w-del">
+							<a href={'javascript:;'}
+								className="w-del"
+								onClick={this.artremoveone}
+								>
 							<img
 								src={require('../img/w-del.png')}
 							/>
@@ -66,7 +76,7 @@ class  ArticleChildComponents extends Component{
 								onClick={this.Favorites}
 								>
 							<img
-								src={this.state.ctrl}
+								src={collectimg}
 							/>
 							</a>
 							<a href={'javascript:;'} className="w-chak">
@@ -112,7 +122,6 @@ class  ArticleChildComponents extends Component{
 							</a>
 						</div>
 						<div>
-
 						</div>
 					</td>
 				</tr>
@@ -125,8 +134,13 @@ class Article extends Component {
 	constructor(){
 	 	super();
 	}
+	//选中全选功能
+	artrightall=()=>{
+		this.props.artrightall()
+	}
 	render() {
-		let articlearr=this.props.articlearr;
+		let articlearr=JSON.parse(localStorage.getItem('articlearr'));
+		let allclass=this.props.wenallonoff?'checktow':'checkall';
 		let list = articlearr.map((e,i) => {
 			let data={
 				id:i,
@@ -138,7 +152,19 @@ class Article extends Component {
 				exhibition:e.exhibition,
 				time:e.time,
 				cheched:e.cheched,
-				text:e.text
+				text:e.text,
+				//收藏
+				collect:e.collect,
+				//全选按钮的class改变
+				wenallonoff:this.props.wenallonoff,
+				//文章收藏-点击按钮
+				collectclick:this.props.collectclick,
+				//文章点击选中事件
+				articleclickright:this.props.articleclickright,
+				//文章全选按钮点击事件
+				artrightall:this.props.artrightall,
+				//单个删除按钮
+				artremoveone:this.props.artremoveone
 			}
 				return <ArticleChildComponents {...data} />
 		});
@@ -161,7 +187,10 @@ class Article extends Component {
 					<thead>
 						<tr>
 							<th>
-								<span className="checkall"></span>
+								<span
+									className={allclass}
+									onClick={this.artrightall}
+									></span>
 							</th>
 							<th>文章列表</th>
 							<th>发布人</th>

@@ -19,11 +19,9 @@ class Home extends Component {
       ]
     }
   }
-  //存储localStorage
+  //存储localStorage 登录信息
   componentDidMount(){
-
     if(JSON.parse(localStorage.getItem('arronoff'))){
-      localStorage.setItem('arr',JSON.stringify(this.state.arr));
       let newarr= JSON.parse(localStorage.getItem('arr'))
       this.setState({
         arr:newarr
