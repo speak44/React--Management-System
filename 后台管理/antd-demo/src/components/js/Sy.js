@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
+import Mostactive from './Mostactive';
 import { Button } from 'antd';
 import Echarts from './echart';
 import '../css/common.css';
 import '../css/indexstyle.css';
 class Sy extends Component {
   render(){
+    let articlearr=JSON.parse(localStorage.getItem('articlearr'));
+    let articlearr2=articlearr.filter((e)=>{
+      return e.exhibition
+    })
+    let list=articlearr2.map((e,i) => {
+      let data={
+        id:i,
+        key:i,
+        title:e.title,
+        time:e.time
+      }
+      return <Mostactive {...data}/>
+    })
     return (
       <div className='indexcon'>
         <div className='indc-top clearfixqxk'>
@@ -79,30 +93,7 @@ class Sy extends Component {
               <i></i>
             </div>
             <ul>
-              <li>
-                <span>css3用transition实现边框动画效果</span>
-                <span>2017-04-14</span>
-              </li>
-              <li>
-                <span>css3用transition实现边框动画效果</span>
-                <span>2017-04-14</span>
-              </li>
-              <li>
-                <span>css3用transition实现边框动画效果</span>
-                <span>2017-04-14</span>
-              </li>
-              <li>
-                <span>css3用transition实现边框动画效果</span>
-                <span>2017-04-14</span>
-              </li>
-              <li>
-                <span>css3用transition实现边框动画效果</span>
-                <span>2017-04-14</span>
-              </li>
-              <li>
-                <span>css3用transition实现边框动画效果</span>
-                <span>2017-04-14</span>
-              </li>
+              {list}
             </ul>
           </div>
         </div>

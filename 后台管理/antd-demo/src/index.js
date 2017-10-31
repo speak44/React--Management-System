@@ -10,7 +10,6 @@ class Home extends Component {
     super()
     this.state={
       bool:false,
-      arronoff:false,
       arr:[
         {
           username:'admin',
@@ -37,7 +36,6 @@ class Home extends Component {
         this.setState({
           bool:true
         })
-        localStorage.setItem('arronoff',JSON.stringify(false))
       }else{
         alert('管理员用户名和密码不正确')
         this.setState({
@@ -53,8 +51,7 @@ class Home extends Component {
     arr2[0].password=newpascont;
     this.setState({
       arr:arr2,
-      bool:false,
-      arronoff:true
+      bool:false
     })
     localStorage.setItem('arr',JSON.stringify(arr2))
     localStorage.setItem('arronoff',JSON.stringify(true))

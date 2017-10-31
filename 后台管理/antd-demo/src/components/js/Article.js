@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Pagination } from 'antd';
+import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 import '../css/common.css';
 import '../css/article.css';
 import '../css/examine.css';
@@ -35,13 +36,16 @@ class  ArticleChildComponents extends Component{
 	}
 	//单个文件删除按钮
 	artremoveone=()=>{
-		console.log(1)
 		this.props.artremoveone(this.props.id)
+	}
+	//点击改变是否展示
+	clickyerorno=()=>{
+		this.props.clickyerorno(this.props.id)
 	}
 	render(){
 		let {title,writer,audit,authoritymanagement,exhibition,time,cheched,text,collect}=this.props;
 		//是否展示引用的class名
-		let sclass=exhibition==='是'?'show':'onshow'
+		let sclass=exhibition?'show':'onshow'
 		//收藏点击更换图片
 		let collectimg=collect?wchouf2:wchouf;
 		//选中更换class名
@@ -58,7 +62,10 @@ class  ArticleChildComponents extends Component{
 					<td>{audit}</td>
 					<td>{authoritymanagement}</td>
 					<td className="Presentation">
-						<div className={sclass}></div>
+						<div
+							className={sclass}
+							onClick={this.clickyerorno}
+							></div>
 					</td>
 					<td>{time}</td>
 					<td>
@@ -138,6 +145,10 @@ class Article extends Component {
 	artrightall=()=>{
 		this.props.artrightall()
 	}
+	//批量删除按钮
+	artdelall=()=>{
+		this.props.artdelall()
+	}
 	render() {
 		let articlearr=JSON.parse(localStorage.getItem('articlearr'));
 		let allclass=this.props.wenallonoff?'checktow':'checkall';
@@ -164,7 +175,11 @@ class Article extends Component {
 				//文章全选按钮点击事件
 				artrightall:this.props.artrightall,
 				//单个删除按钮
-				artremoveone:this.props.artremoveone
+				artremoveone:this.props.artremoveone,
+				//批量删除按钮
+				artdelall:this.props.artdelall,
+				//点击改变是否展示
+				clickyerorno:this.props.clickyerorno
 			}
 				return <ArticleChildComponents {...data} />
 		});
@@ -178,9 +193,14 @@ class Article extends Component {
 							/>
 							<a href={'javascript:;'}>查询</a>
     		   			</div>
-    		   			<a href={'javascript:;'} className="addwenz">添加文章</a>
-    		   			<a href={'javascript:;'} className="exavedwenz">审核文章</a>
-    		   			<a href={'javascript:;'} className="batchdelwen">批量删除</a>
+								<Link to="/home/Addarticle"
+											className="addwenz">
+											添加文章
+								</Link>
+    		   			<a href={'javascript:;'}
+									className="batchdelwen"
+									onClick={this.artdelall}
+									>批量删除</a>
     		   		</div>
     		   	</div>
 				<table  className="wcont">

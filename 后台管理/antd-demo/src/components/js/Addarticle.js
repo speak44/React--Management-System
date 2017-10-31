@@ -49,10 +49,6 @@ function disabledDateTime() {
     disabledSeconds: () => [55, 56],
   };
 }
-//确认的发布时间
-	function onChange(value, dateString) {
-	  console.log( dateString);
-	}
 class Addarticle extends Component {
    constructor(props) {
       super(props);
@@ -74,6 +70,8 @@ class Addarticle extends Component {
 				 model:'',
 				 //文章内容
 				 txt:'',
+				 //发布时间
+				 newtime:'',
 				 conddis:'none',
 				 zhuconoff:true,
 				 transzhuc:'',
@@ -86,9 +84,18 @@ class Addarticle extends Component {
 				 zt2:2
       }
    }
+	 //确认的发布时间
+	 onChange=(value, dateString)=>{
+		 this.setState({
+			 newtime:dateString
+		 })
+	 }
+	 //设置文章内容
    receiveMarkdown = (content) => {
 		//  console.log(content)
-      this.setState({txt: content});
+      this.setState({
+				txt: content
+			});
    }
 	 //自定义属性点击事件
 	 indclick=(newid)=>{
@@ -127,6 +134,66 @@ class Addarticle extends Component {
 		 conddis:'none'
 	 })
  }
+ //文章标题存储
+ changeatrtitle=(ev)=>{
+	 this.setState({
+		 arttitle:ev.target.value
+	 })
+ }
+ //文章作者
+ changeautwriter=(ev)=>{
+	 this.setState({
+		 autwriter:ev.target.value
+	 })
+ }
+ //关键词修改
+ changekeyword=(ev)=>{
+	 this.setState({
+		 keyword:ev.target.value
+	 })
+ }
+ //摘要内容修改
+ changemodel=(ev)=>{
+	 this.setState({
+		 model:ev.target.value
+	 })
+ }
+ //提交按钮点击
+submit=()=>{
+	// console.log(this.state.indexcus[2].indonoff)
+	if(this.state.arttitle&&this.state.autwriter&&this.state.newtime&&this.state.txt&&this.state.indexcus[2].indonoff){
+		let json={
+			title:this.state.arttitle,
+			writer:this.state.autwriter,
+			audit:'待审核',
+			authoritymanagement:this.state.cond,
+			//是否展示
+			exhibition:this.state.indexcus[2].indonoff,
+			cheched:false,
+			//收藏
+			collect:false,
+			time:this.state.newtime,
+			text:this.state.txt
+		}
+		this.props.changearticlearr(json)
+		alert('提交成功')
+		this.setState({
+			arttitle:'',
+			autwriter:'',
+			cond:'',
+			newtime:'',
+			keyword:'',
+			model:'',
+			indexcus:[
+				{indexname:'推荐',indonoff:false},
+				{indexname:'审核',indonoff:false},
+				{indexname:'展示',indonoff:false}
+			]
+		})
+	}else{
+		alert('请填写正确内容')
+	}
+}
 	render() {
 			let newindexcus=this.state.indexcus;
 			let list=newindexcus.map((e,i)=>{
@@ -184,7 +251,7 @@ class Addarticle extends Component {
 						      disabledTime={disabledDateTime}
 						      showTime={{ defaultValue: moment('00:00:00', 'HH:mm:ss') }}
 						      placeholder="Select Time"
-						      onChange={onChange}
+						      onChange={this.onChange}
 						    />
 	    				</div>
 	    			</div>
@@ -243,7 +310,10 @@ class Addarticle extends Component {
     				</div>
     			</div>
 					<div className="subtjc essadd">
-								<a href={'javascript:;'}>立即提交</a>
+								<a
+									href={'javascript:;'}
+									onClick={this.submit}
+									>立即提交</a>
 								<a href={'javascript:;'}>重置</a>
 					</div>
 	    	</div>

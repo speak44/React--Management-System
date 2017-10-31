@@ -59,7 +59,6 @@ class AddUser extends Component {
       })
     }
   }
-  //还需要做，如果邮箱没有修改，将无法提交成功  <已经完成>
   //改变性别
   changesev=(ev)=>{
     this.setState({
