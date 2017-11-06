@@ -37,7 +37,8 @@ class SiderDemo extends Component {
           {
           title:'《Web应用安全权威指南》读后有感',
           writer:'王辉',
-          audit:'审核通过',
+          //审核情况
+          audit:true,
           authoritymanagement:'开放浏览',
           //是否展示
           exhibition:true,
@@ -50,7 +51,7 @@ class SiderDemo extends Component {
           {
           title:'CSS发展史',
           writer:'沈晨',
-          audit:'待审核',
+          audit:false,
           authoritymanagement:'开放浏览',
           //是否展示
           exhibition:true,
@@ -63,7 +64,7 @@ class SiderDemo extends Component {
           {
           title:'HTTP',
           writer:'赵可欣',
-          audit:'待审核',
+          audit:false,
           authoritymanagement:'会员浏览',
           //是否展示
           exhibition:true,
@@ -76,7 +77,7 @@ class SiderDemo extends Component {
           {
           title:' Facebook拒修改React开源许可，你会对React说再见吗？',
           writer:'赵可欣',
-          audit:'待审核',
+          audit:false,
           authoritymanagement:'会员浏览',
           //是否展示
           exhibition:false,
@@ -89,7 +90,7 @@ class SiderDemo extends Component {
         {
         title:'Vue和React的使用场景和深度有何不同？',
         writer:'尤雨溪',
-        audit:'审核通过',
+        audit:true,
         authoritymanagement:'会员浏览',
           //是否展示
         exhibition:true,
@@ -102,7 +103,7 @@ class SiderDemo extends Component {
         {
         title:'jquery框架是什么？',
         writer:'周海军',
-        audit:'审核通过',
+        audit:true,
         authoritymanagement:'会员浏览',
           //是否展示
         exhibition:false,
@@ -115,7 +116,7 @@ class SiderDemo extends Component {
         {
         title:'关于Udacity的那些事儿',
         writer:'AI科技大本营',
-        audit:'审核通过',
+        audit:true,
         authoritymanagement:'公开浏览',
           //是否展示
         exhibition:false,
@@ -129,7 +130,7 @@ class SiderDemo extends Component {
         {
         title:'人工智能创业的“风口”和“泡沫”',
         writer:'人工智能头条',
-        audit:'待审核',
+        audit:false,
         authoritymanagement:'公开浏览',
           //是否展示
         exhibition:false,
@@ -143,7 +144,7 @@ class SiderDemo extends Component {
         {
         title:'华为公开讽刺iPhoneX：面部识别没用！',
         writer:'比特网',
-        audit:'审核通过',
+        audit:true,
         authoritymanagement:'公开浏览',
         //是否展示
         exhibition:false,
@@ -157,7 +158,7 @@ class SiderDemo extends Component {
         {
         title:'如何优化Web服务器以实现高吞吐量和低延迟',
         writer:'CSDN',
-        audit:'待审核',
+        audit:false,
         authoritymanagement:'公开浏览',
         //是否展示
         exhibition:false,
@@ -215,6 +216,7 @@ class SiderDemo extends Component {
         wenallonoff:wenallonoff2
       })
     }
+
   }
   onCollapse = (collapsed) => {
     this.setState({ collapsed });
@@ -341,7 +343,7 @@ class SiderDemo extends Component {
   paschange=(newpascont)=>{
     this.props.newpas(newpascont)
   }
-  /**************************文章列表的操作****************************/
+  /***************** *********文章列表的操作****************************/
   //点击收藏
   collectclick=(newid)=>{
     let {articlearr}=this.state
@@ -456,6 +458,21 @@ class SiderDemo extends Component {
     })
     localStorage.setItem('articlearr',JSON.stringify(articlearr2));
     localStorage.setItem('articlearronoff',JSON.stringify(true));
+  }
+  /**********************待审核文章*******************************/
+  //点击收藏
+  collectclickExacont=(newid)=>{
+    let {articlearr}=this.state
+    let articlearr2=Object.assign(articlearr)
+    articlearr2.forEach((e,i)=>{
+      if(i==newid){
+          e.collect=!e.collect
+      }
+    })
+    this.setState({
+      articlearr:articlearr2
+    })
+   localStorage.setItem('articlearronoff',JSON.stringify(true));
   }
   render() {
     return (
@@ -623,7 +640,12 @@ class SiderDemo extends Component {
                       clickyerorno={this.clickyerorno}
                   />
                 }}/>
-                <Route path ="/home/Examine" component={Examine}/>
+                <Route path ="/home/Examine"
+                  render={()=>{
+                    return <Examine
+                      
+                    />
+                  }}/>
                 <Route path ="/home/Addarticle"
                     render={()=>{
                       return<Addarticle

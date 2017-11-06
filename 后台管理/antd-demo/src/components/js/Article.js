@@ -50,6 +50,7 @@ class  ArticleChildComponents extends Component{
 		let collectimg=collect?wchouf2:wchouf;
 		//选中更换class名
 		let atrright=cheched?'checktow':'checkall';
+		let audittext=audit?'审核通过':'待审核';
 		return(
 				<tr>
 					<td><span
@@ -59,7 +60,7 @@ class  ArticleChildComponents extends Component{
 					</td>
 					<td>{title}</td>
 					<td>{writer}</td>
-					<td>{audit}</td>
+					<td>{audittext}</td>
 					<td>{authoritymanagement}</td>
 					<td className="Presentation">
 						<div
@@ -118,11 +119,10 @@ class  ArticleChildComponents extends Component{
 												</div>
 												<div>
 													<span>审核状态：</span>
-													<p>{audit}</p>
+													<p>{audittext}</p>
 												</div>
 										</div>
-											<textarea>
-												{text}
+											<textarea value={text}>
 											</textarea>
 									</div>
 								</div>

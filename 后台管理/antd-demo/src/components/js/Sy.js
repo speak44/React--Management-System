@@ -7,6 +7,9 @@ import '../css/indexstyle.css';
 class Sy extends Component {
   render(){
     let articlearr=JSON.parse(localStorage.getItem('articlearr'));
+    if(!articlearr){
+        return <div></div>
+    }
     let articlearr2=articlearr.filter((e)=>{
       return e.exhibition
     })
